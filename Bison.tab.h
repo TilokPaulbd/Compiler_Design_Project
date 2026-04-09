@@ -54,35 +54,34 @@ extern int yydebug;
     YYEOF = 0,                     /* "end of file"  */
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
-    BOROMALA = 258,                /* BOROMALA  */
-    JUG = 259,                     /* JUG  */
-    BIYUG = 260,                   /* BIYUG  */
-    GUN = 261,                     /* GUN  */
-    VAG = 262,                     /* VAG  */
-    BORNOMALA = 263,               /* BORNOMALA  */
+    BORNOMALA = 258,               /* BORNOMALA  */
+    SONGKA = 259,                  /* SONGKA  */
+    JUG = 260,                     /* JUG  */
+    BIYUG = 261,                   /* BIYUG  */
+    GUN = 262,                     /* GUN  */
+    VAG = 263,                     /* VAG  */
     DEKHAU = 264,                  /* DEKHAU  */
     JODI = 265,                    /* JODI  */
     OTHOBA = 266,                  /* OTHOBA  */
-    JOTOKHON = 267,                /* JOTOKHON  */
-    JONNO = 268,                   /* JONNO  */
-    BIROTI = 269,                  /* BIROTI  */
-    CHOLUK = 270,                  /* CHOLUK  */
-    FEROT = 271,                   /* FEROT  */
-    SOMAN = 272,                   /* SOMAN  */
-    OSOMAN = 273,                  /* OSOMAN  */
-    CHOTO = 274,                   /* CHOTO  */
-    BORO = 275,                    /* BORO  */
-    CHOTO_SOMAN = 276,             /* CHOTO_SOMAN  */
-    BORO_SOMAN = 277,              /* BORO_SOMAN  */
-    ABONG = 278,                   /* ABONG  */
-    BA = 279,                      /* BA  */
-    NA = 280,                      /* NA  */
-    BBONDONI = 281,                /* BBONDONI  */
-    DBONDONI = 282,                /* DBONDONI  */
-    SONGKA = 283,                  /* SONGKA  */
-    OR = 284,                      /* OR  */
-    AND = 285,                     /* AND  */
-    LOWER_THAN_ELSE = 286          /* LOWER_THAN_ELSE  */
+    SOMAN = 267,                   /* SOMAN  */
+    OSOMAN = 268,                  /* OSOMAN  */
+    CHOTO = 269,                   /* CHOTO  */
+    BORO = 270,                    /* BORO  */
+    CHOTO_SOMAN = 271,             /* CHOTO_SOMAN  */
+    BORO_SOMAN = 272,              /* BORO_SOMAN  */
+    JOTOKHON = 273,                /* JOTOKHON  */
+    BIROTI = 274,                  /* BIROTI  */
+    CHOLUK = 275,                  /* CHOLUK  */
+    FEROT = 276,                   /* FEROT  */
+    ABONG = 277,                   /* ABONG  */
+    BA = 278,                      /* BA  */
+    JONNO = 279,                   /* JONNO  */
+    AND = 280,                     /* AND  */
+    OR = 281,                      /* OR  */
+    NA = 282,                      /* NA  */
+    BBONDONI = 283,                /* BBONDONI  */
+    DBONDONI = 284,                /* DBONDONI  */
+    ARMAN = 285                    /* ARMAN  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -91,12 +90,12 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 10 "Bison.y"
+#line 55 "Bison.y"
 
     double songka;
     char *bornomala;
 
-#line 100 "Bison.tab.h"
+#line 99 "Bison.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

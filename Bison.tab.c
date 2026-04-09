@@ -70,13 +70,56 @@
 #line 1 "Bison.y"
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 int yylex(void);
 int yyerror(const char *s);
 extern FILE *yyin;
 
 
-#line 80 "Bison.tab.c"
+typedef struct{
+    char variable_Name[100];
+    double variable_Value;
+    int is_Assigned;
+} Variable;
+
+Variable vars[100];
+int var_Count = 0;
+
+
+double get_Variable_Value(char *name) {
+    for (int i = 0; i < var_Count; i++) {
+        if (strcmp(vars[i].variable_Name, name) == 0) {
+            if (vars[i].is_Assigned) {
+                return vars[i].variable_Value;
+            } else {
+                printf("ভেরিয়েবল '%s' এর মান নির্ধারণ করা হয়নি।\n", name);
+                return 0;
+            }
+        }
+    }
+    printf("ভেরিয়েবল '%s' পাওয়া যায়নি।\n", name);
+    return 0;
+}
+
+void set_Variable_Value(char *name, double value) {
+    for (int i = 0; i < var_Count; i++) {
+        if (strcmp(vars[i].variable_Name, name) == 0) {
+            vars[i].variable_Value = value;
+            vars[i].is_Assigned = 1;
+            return;
+        }
+    }
+
+    strcpy(vars[var_Count].variable_Name, name);
+    vars[var_Count].variable_Value = value;
+    vars[var_Count].is_Assigned = 1;
+    var_Count++;
+}
+
+
+#line 123 "Bison.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -107,37 +150,37 @@ enum yysymbol_kind_t
   YYSYMBOL_YYEOF = 0,                      /* "end of file"  */
   YYSYMBOL_YYerror = 1,                    /* error  */
   YYSYMBOL_YYUNDEF = 2,                    /* "invalid token"  */
-  YYSYMBOL_BOROMALA = 3,                   /* BOROMALA  */
-  YYSYMBOL_JUG = 4,                        /* JUG  */
-  YYSYMBOL_BIYUG = 5,                      /* BIYUG  */
-  YYSYMBOL_GUN = 6,                        /* GUN  */
-  YYSYMBOL_VAG = 7,                        /* VAG  */
-  YYSYMBOL_BORNOMALA = 8,                  /* BORNOMALA  */
+  YYSYMBOL_BORNOMALA = 3,                  /* BORNOMALA  */
+  YYSYMBOL_SONGKA = 4,                     /* SONGKA  */
+  YYSYMBOL_JUG = 5,                        /* JUG  */
+  YYSYMBOL_BIYUG = 6,                      /* BIYUG  */
+  YYSYMBOL_GUN = 7,                        /* GUN  */
+  YYSYMBOL_VAG = 8,                        /* VAG  */
   YYSYMBOL_DEKHAU = 9,                     /* DEKHAU  */
   YYSYMBOL_JODI = 10,                      /* JODI  */
   YYSYMBOL_OTHOBA = 11,                    /* OTHOBA  */
-  YYSYMBOL_JOTOKHON = 12,                  /* JOTOKHON  */
-  YYSYMBOL_JONNO = 13,                     /* JONNO  */
-  YYSYMBOL_BIROTI = 14,                    /* BIROTI  */
-  YYSYMBOL_CHOLUK = 15,                    /* CHOLUK  */
-  YYSYMBOL_FEROT = 16,                     /* FEROT  */
-  YYSYMBOL_SOMAN = 17,                     /* SOMAN  */
-  YYSYMBOL_OSOMAN = 18,                    /* OSOMAN  */
-  YYSYMBOL_CHOTO = 19,                     /* CHOTO  */
-  YYSYMBOL_BORO = 20,                      /* BORO  */
-  YYSYMBOL_CHOTO_SOMAN = 21,               /* CHOTO_SOMAN  */
-  YYSYMBOL_BORO_SOMAN = 22,                /* BORO_SOMAN  */
-  YYSYMBOL_ABONG = 23,                     /* ABONG  */
-  YYSYMBOL_BA = 24,                        /* BA  */
-  YYSYMBOL_NA = 25,                        /* NA  */
-  YYSYMBOL_BBONDONI = 26,                  /* BBONDONI  */
-  YYSYMBOL_DBONDONI = 27,                  /* DBONDONI  */
-  YYSYMBOL_SONGKA = 28,                    /* SONGKA  */
-  YYSYMBOL_OR = 29,                        /* OR  */
-  YYSYMBOL_AND = 30,                       /* AND  */
-  YYSYMBOL_LOWER_THAN_ELSE = 31,           /* LOWER_THAN_ELSE  */
-  YYSYMBOL_YYACCEPT = 32,                  /* $accept  */
-  YYSYMBOL_input = 33,                     /* input  */
+  YYSYMBOL_SOMAN = 12,                     /* SOMAN  */
+  YYSYMBOL_OSOMAN = 13,                    /* OSOMAN  */
+  YYSYMBOL_CHOTO = 14,                     /* CHOTO  */
+  YYSYMBOL_BORO = 15,                      /* BORO  */
+  YYSYMBOL_CHOTO_SOMAN = 16,               /* CHOTO_SOMAN  */
+  YYSYMBOL_BORO_SOMAN = 17,                /* BORO_SOMAN  */
+  YYSYMBOL_JOTOKHON = 18,                  /* JOTOKHON  */
+  YYSYMBOL_BIROTI = 19,                    /* BIROTI  */
+  YYSYMBOL_CHOLUK = 20,                    /* CHOLUK  */
+  YYSYMBOL_FEROT = 21,                     /* FEROT  */
+  YYSYMBOL_ABONG = 22,                     /* ABONG  */
+  YYSYMBOL_BA = 23,                        /* BA  */
+  YYSYMBOL_JONNO = 24,                     /* JONNO  */
+  YYSYMBOL_AND = 25,                       /* AND  */
+  YYSYMBOL_OR = 26,                        /* OR  */
+  YYSYMBOL_NA = 27,                        /* NA  */
+  YYSYMBOL_BBONDONI = 28,                  /* BBONDONI  */
+  YYSYMBOL_DBONDONI = 29,                  /* DBONDONI  */
+  YYSYMBOL_ARMAN = 30,                     /* ARMAN  */
+  YYSYMBOL_YYACCEPT = 31,                  /* $accept  */
+  YYSYMBOL_input = 32,                     /* input  */
+  YYSYMBOL_statement_list = 33,            /* statement_list  */
   YYSYMBOL_statement = 34,                 /* statement  */
   YYSYMBOL_exp = 35,                       /* exp  */
   YYSYMBOL_condition = 36                  /* condition  */
@@ -468,19 +511,19 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  2
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   61
+#define YYLAST   100
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  32
+#define YYNTOKENS  31
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  5
+#define YYNNTS  6
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  22
+#define YYNRULES  27
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  50
+#define YYNSTATES  59
 
 /* YYMAXUTOK -- Last valid token kind.  */
-#define YYMAXUTOK   286
+#define YYMAXUTOK   285
 
 
 /* YYTRANSLATE(TOKEN-NUM) -- Symbol number corresponding to TOKEN-NUM
@@ -522,16 +565,16 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
        5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
       15,    16,    17,    18,    19,    20,    21,    22,    23,    24,
-      25,    26,    27,    28,    29,    30,    31
+      25,    26,    27,    28,    29,    30
 };
 
 #if YYDEBUG
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
-static const yytype_int8 yyrline[] =
+static const yytype_uint8 yyrline[] =
 {
-       0,    38,    38,    40,    44,    45,    46,    47,    48,    52,
-      53,    54,    55,    56,    61,    62,    63,    64,    65,    66,
-      67,    68,    69
+       0,    93,    93,    95,    99,   100,   107,   112,   118,   123,
+     129,   134,   144,   146,   148,   149,   150,   151,   153,   159,
+     160,   161,   162,   163,   164,   166,   167,   168
 };
 #endif
 
@@ -547,12 +590,12 @@ static const char *yysymbol_name (yysymbol_kind_t yysymbol) YY_ATTRIBUTE_UNUSED;
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-  "\"end of file\"", "error", "\"invalid token\"", "BOROMALA", "JUG",
-  "BIYUG", "GUN", "VAG", "BORNOMALA", "DEKHAU", "JODI", "OTHOBA",
-  "JOTOKHON", "JONNO", "BIROTI", "CHOLUK", "FEROT", "SOMAN", "OSOMAN",
-  "CHOTO", "BORO", "CHOTO_SOMAN", "BORO_SOMAN", "ABONG", "BA", "NA",
-  "BBONDONI", "DBONDONI", "SONGKA", "OR", "AND", "LOWER_THAN_ELSE",
-  "$accept", "input", "statement", "exp", "condition", YY_NULLPTR
+  "\"end of file\"", "error", "\"invalid token\"", "BORNOMALA", "SONGKA",
+  "JUG", "BIYUG", "GUN", "VAG", "DEKHAU", "JODI", "OTHOBA", "SOMAN",
+  "OSOMAN", "CHOTO", "BORO", "CHOTO_SOMAN", "BORO_SOMAN", "JOTOKHON",
+  "BIROTI", "CHOLUK", "FEROT", "ABONG", "BA", "JONNO", "AND", "OR", "NA",
+  "BBONDONI", "DBONDONI", "ARMAN", "$accept", "input", "statement_list",
+  "statement", "exp", "condition", YY_NULLPTR
 };
 
 static const char *
@@ -562,7 +605,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-37)
+#define YYPACT_NINF (-21)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -576,11 +619,12 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-     -37,     0,   -37,   -18,    -5,   -37,   -37,    37,    12,    11,
-      11,    11,    11,    11,    -2,    31,    -3,    27,     6,     6,
-     -37,   -37,   -37,   -37,    11,    11,    11,    11,    11,    11,
-      11,    11,    11,    29,    37,    37,    37,    37,    37,    37,
-      37,    37,    37,    -4,    30,    45,    33,    -4,    34,   -37
+     -21,    16,   -21,   -15,   -21,   -18,   -11,    20,    47,   -21,
+      75,    20,    39,    34,   -21,    63,   -21,    20,    20,    20,
+      20,    75,    10,    71,    34,    81,    29,   -21,    45,    45,
+     -21,   -21,   -21,   -21,   -21,    20,    20,    20,    20,    20,
+      20,    34,    34,    32,    75,    75,    75,    75,    75,    75,
+     -21,    48,    47,    -1,    53,    44,    47,    37,   -21
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -588,23 +632,24 @@ static const yytype_int8 yypact[] =
    means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       2,     0,     1,     0,     0,     9,     3,     4,     0,     0,
-       0,     0,     0,     0,     0,     0,     0,     0,    10,    11,
-      12,    13,     6,     5,     0,     0,     0,     0,     0,     0,
-       0,     0,     0,     0,    14,    15,    16,    17,    18,    19,
-      22,    21,    20,     0,     0,     7,     0,     0,     0,     8
+       2,     0,     1,    13,    12,     0,     0,     0,     3,     4,
+       6,     0,     0,     0,    13,     0,     5,     0,     0,     0,
+       0,     7,    13,     0,     0,     0,     0,    18,    14,    15,
+      16,    17,     9,     8,    27,     0,     0,     0,     0,     0,
+       0,     0,     0,     0,    19,    20,    21,    22,    23,    24,
+      25,    26,     0,     0,    10,     0,     0,     0,    11
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -37,   -37,   -36,    21,   -37
+     -21,   -21,     7,    -8,    -6,   -20
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-       0,     1,     6,     7,    17
+       0,     1,     8,     9,    10,    26
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -612,51 +657,60 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-       2,    10,    11,    12,    13,     3,     4,    44,     8,     3,
-       4,    48,    12,    13,    24,    25,    26,    27,    28,    29,
-      14,     9,    30,     0,     5,    22,    31,    32,     5,    15,
-      16,    18,    19,    20,    21,    10,    11,    12,    13,     5,
-       5,    10,    11,    12,    13,    34,    35,    36,    37,    38,
-      39,    40,    41,    42,    33,    43,    46,    45,    23,    47,
-       0,    49
+      16,    15,     3,     4,    34,    21,    23,    25,     5,     6,
+      12,    28,    29,    30,    31,    11,     2,    13,    25,     3,
+       4,    50,    51,    14,     4,     5,     6,     7,    54,    44,
+      45,    46,    47,    48,    49,    25,    25,    14,     4,    32,
+       3,     4,    22,     4,     7,    16,     5,     6,     7,    16,
+       3,     4,    19,    20,    41,    42,     5,     6,    43,    53,
+      52,    24,     7,    57,    55,     7,    58,     7,    17,    18,
+      19,    20,    56,    41,     0,     7,    17,    18,    19,    20,
+      17,    18,    19,    20,     0,     0,    17,    18,    19,    20,
+       0,     0,    27,    35,    36,    37,    38,    39,    40,     0,
+      33
 };
 
 static const yytype_int8 yycheck[] =
 {
-       0,     4,     5,     6,     7,     9,    10,    43,    26,     9,
-      10,    47,     6,     7,    17,    18,    19,    20,    21,    22,
-       8,    26,    25,    -1,    28,    27,    29,    30,    28,     8,
-       9,    10,    11,    12,    13,     4,     5,     6,     7,    28,
-      28,     4,     5,     6,     7,    24,    25,    26,    27,    28,
-      29,    30,    31,    32,    27,    26,    11,    27,    27,    26,
-      -1,    27
+       8,     7,     3,     4,    24,    11,    12,    13,     9,    10,
+      28,    17,    18,    19,    20,    30,     0,    28,    24,     3,
+       4,    41,    42,     3,     4,     9,    10,    28,    29,    35,
+      36,    37,    38,    39,    40,    41,    42,     3,     4,    29,
+       3,     4,     3,     4,    28,    53,     9,    10,    28,    57,
+       3,     4,     7,     8,    25,    26,     9,    10,    29,    52,
+      28,    27,    28,    56,    11,    28,    29,    28,     5,     6,
+       7,     8,    28,    25,    -1,    28,     5,     6,     7,     8,
+       5,     6,     7,     8,    -1,    -1,     5,     6,     7,     8,
+      -1,    -1,    29,    12,    13,    14,    15,    16,    17,    -1,
+      29
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
    state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,    33,     0,     9,    10,    28,    34,    35,    26,    26,
-       4,     5,     6,     7,     8,    35,    35,    36,    35,    35,
-      35,    35,    27,    27,    17,    18,    19,    20,    21,    22,
-      25,    29,    30,    27,    35,    35,    35,    35,    35,    35,
-      35,    35,    35,    26,    34,    27,    11,    26,    34,    27
+       0,    32,     0,     3,     4,     9,    10,    28,    33,    34,
+      35,    30,    28,    28,     3,    35,    34,     5,     6,     7,
+       8,    35,     3,    35,    27,    35,    36,    29,    35,    35,
+      35,    35,    29,    29,    36,    12,    13,    14,    15,    16,
+      17,    25,    26,    29,    35,    35,    35,    35,    35,    35,
+      36,    36,    28,    33,    29,    11,    28,    33,    29
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
-       0,    32,    33,    33,    34,    34,    34,    34,    34,    35,
-      35,    35,    35,    35,    36,    36,    36,    36,    36,    36,
-      36,    36,    36
+       0,    31,    32,    32,    33,    33,    34,    34,    34,    34,
+      34,    34,    35,    35,    35,    35,    35,    35,    35,    36,
+      36,    36,    36,    36,    36,    36,    36,    36
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
-       0,     2,     0,     2,     1,     4,     4,     7,    11,     1,
-       3,     3,     3,     3,     3,     3,     3,     3,     3,     3,
-       3,     3,     3
+       0,     2,     0,     2,     1,     2,     1,     3,     4,     4,
+       7,    11,     1,     1,     3,     3,     3,     3,     3,     3,
+       3,     3,     3,     3,     3,     3,     3,     2
 };
 
 
@@ -1119,128 +1173,160 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-  case 3: /* input: input statement  */
-#line 40 "Bison.y"
-                    {printf("%lf\n",(yyvsp[0].songka));}
-#line 1126 "Bison.tab.c"
+  case 6: /* statement: exp  */
+#line 107 "Bison.y"
+          {
+          printf("%lf\n", (yyvsp[0].songka));
+          (yyval.songka) = (yyvsp[0].songka);
+      }
+#line 1183 "Bison.tab.c"
     break;
 
-  case 4: /* statement: exp  */
-#line 44 "Bison.y"
-        { (yyval.songka) = (yyvsp[0].songka); }
-#line 1132 "Bison.tab.c"
+  case 7: /* statement: BORNOMALA ARMAN exp  */
+#line 112 "Bison.y"
+                          {
+        set_Variable_Value((yyvsp[-2].bornomala), (yyvsp[0].songka));
+        printf("%lf\n", (yyvsp[0].songka));
+        (yyval.songka) = (yyvsp[0].songka);
+      }
+#line 1193 "Bison.tab.c"
     break;
 
-  case 5: /* statement: DEKHAU BBONDONI exp DBONDONI  */
-#line 45 "Bison.y"
-                                  {(yyval.songka) = (yyvsp[-1].songka); }
-#line 1138 "Bison.tab.c"
+  case 8: /* statement: DEKHAU BBONDONI exp DBONDONI  */
+#line 118 "Bison.y"
+                                   {
+        printf("%lf\n", (yyvsp[-1].songka));
+        (yyval.songka) = (yyvsp[-1].songka);
+      }
+#line 1202 "Bison.tab.c"
     break;
 
-  case 6: /* statement: DEKHAU BBONDONI BORNOMALA DBONDONI  */
-#line 46 "Bison.y"
-                                       {  (yyval.songka) = 3; }
-#line 1144 "Bison.tab.c"
+  case 9: /* statement: DEKHAU BBONDONI BORNOMALA DBONDONI  */
+#line 123 "Bison.y"
+                                         {
+        double val = get_Variable_Value((yyvsp[-1].bornomala));
+        printf("%lf\n", val);
+        (yyval.songka) = val;
+      }
+#line 1212 "Bison.tab.c"
     break;
 
-  case 7: /* statement: JODI BBONDONI condition DBONDONI BBONDONI statement DBONDONI  */
-#line 47 "Bison.y"
-                                                                 { if ((yyvsp[-4].songka)) (yyval.songka) = (yyvsp[-1].songka);else (yyval.songka) = 0; }
-#line 1150 "Bison.tab.c"
+  case 10: /* statement: JODI BBONDONI condition DBONDONI BBONDONI statement_list DBONDONI  */
+#line 129 "Bison.y"
+                                                                        {
+        if ((yyvsp[-4].songka)) (yyval.songka) = (yyvsp[-1].songka);
+        else (yyval.songka) = 0;
+      }
+#line 1221 "Bison.tab.c"
     break;
 
-  case 8: /* statement: JODI BBONDONI condition DBONDONI BBONDONI statement DBONDONI OTHOBA BBONDONI statement DBONDONI  */
-#line 48 "Bison.y"
-                                                                                                    { if ((yyvsp[-8].songka)) (yyval.songka) = (yyvsp[-5].songka); else (yyval.songka) = (yyvsp[-1].songka); }
-#line 1156 "Bison.tab.c"
+  case 11: /* statement: JODI BBONDONI condition DBONDONI BBONDONI statement_list DBONDONI OTHOBA BBONDONI statement_list DBONDONI  */
+#line 135 "Bison.y"
+                                              {
+        if ((yyvsp[-8].songka)) (yyval.songka) = (yyvsp[-5].songka);
+        else (yyval.songka) = (yyvsp[-1].songka);
+      }
+#line 1230 "Bison.tab.c"
     break;
 
-  case 9: /* exp: SONGKA  */
-#line 52 "Bison.y"
-           { (yyval.songka) = (yyvsp[0].songka); }
-#line 1162 "Bison.tab.c"
+  case 12: /* exp: SONGKA  */
+#line 144 "Bison.y"
+             { (yyval.songka) = (yyvsp[0].songka); }
+#line 1236 "Bison.tab.c"
     break;
 
-  case 10: /* exp: exp JUG exp  */
-#line 53 "Bison.y"
-                { (yyval.songka) = (yyvsp[-2].songka) + (yyvsp[0].songka); }
-#line 1168 "Bison.tab.c"
+  case 13: /* exp: BORNOMALA  */
+#line 146 "Bison.y"
+                { (yyval.songka) = get_Variable_Value((yyvsp[0].bornomala)); }
+#line 1242 "Bison.tab.c"
     break;
 
-  case 11: /* exp: exp BIYUG exp  */
-#line 54 "Bison.y"
-                  { (yyval.songka) = (yyvsp[-2].songka) - (yyvsp[0].songka); }
-#line 1174 "Bison.tab.c"
+  case 14: /* exp: exp JUG exp  */
+#line 148 "Bison.y"
+                  { (yyval.songka) = (yyvsp[-2].songka) + (yyvsp[0].songka); }
+#line 1248 "Bison.tab.c"
     break;
 
-  case 12: /* exp: exp GUN exp  */
-#line 55 "Bison.y"
+  case 15: /* exp: exp BIYUG exp  */
+#line 149 "Bison.y"
+                    { (yyval.songka) = (yyvsp[-2].songka) - (yyvsp[0].songka); }
+#line 1254 "Bison.tab.c"
+    break;
+
+  case 16: /* exp: exp GUN exp  */
+#line 150 "Bison.y"
                   { (yyval.songka) = (yyvsp[-2].songka) * (yyvsp[0].songka); }
-#line 1180 "Bison.tab.c"
+#line 1260 "Bison.tab.c"
     break;
 
-  case 13: /* exp: exp VAG exp  */
-#line 56 "Bison.y"
+  case 17: /* exp: exp VAG exp  */
+#line 151 "Bison.y"
                   { (yyval.songka) = (yyvsp[-2].songka) / (yyvsp[0].songka); }
-#line 1186 "Bison.tab.c"
+#line 1266 "Bison.tab.c"
     break;
 
-  case 14: /* condition: exp SOMAN exp  */
-#line 61 "Bison.y"
-                  { (yyval.songka) = ((yyvsp[-2].songka) == (yyvsp[0].songka)); }
-#line 1192 "Bison.tab.c"
+  case 18: /* exp: BBONDONI exp DBONDONI  */
+#line 153 "Bison.y"
+                            { (yyval.songka) = (yyvsp[-1].songka); }
+#line 1272 "Bison.tab.c"
     break;
 
-  case 15: /* condition: exp OSOMAN exp  */
-#line 62 "Bison.y"
-                   { (yyval.songka) = ((yyvsp[-2].songka) != (yyvsp[0].songka)); }
-#line 1198 "Bison.tab.c"
+  case 19: /* condition: exp SOMAN exp  */
+#line 159 "Bison.y"
+                    { (yyval.songka) = ((yyvsp[-2].songka) == (yyvsp[0].songka)); }
+#line 1278 "Bison.tab.c"
     break;
 
-  case 16: /* condition: exp CHOTO exp  */
-#line 63 "Bison.y"
-                  { (yyval.songka) = ((yyvsp[-2].songka) < (yyvsp[0].songka)); }
-#line 1204 "Bison.tab.c"
+  case 20: /* condition: exp OSOMAN exp  */
+#line 160 "Bison.y"
+                     { (yyval.songka) = ((yyvsp[-2].songka) != (yyvsp[0].songka)); }
+#line 1284 "Bison.tab.c"
     break;
 
-  case 17: /* condition: exp BORO exp  */
-#line 64 "Bison.y"
-                 { (yyval.songka) = ((yyvsp[-2].songka) > (yyvsp[0].songka)); }
-#line 1210 "Bison.tab.c"
+  case 21: /* condition: exp CHOTO exp  */
+#line 161 "Bison.y"
+                    { (yyval.songka) = ((yyvsp[-2].songka) < (yyvsp[0].songka)); }
+#line 1290 "Bison.tab.c"
     break;
 
-  case 18: /* condition: exp CHOTO_SOMAN exp  */
-#line 65 "Bison.y"
-                        { (yyval.songka) = ((yyvsp[-2].songka) <= (yyvsp[0].songka)); }
-#line 1216 "Bison.tab.c"
+  case 22: /* condition: exp BORO exp  */
+#line 162 "Bison.y"
+                   { (yyval.songka) = ((yyvsp[-2].songka) > (yyvsp[0].songka)); }
+#line 1296 "Bison.tab.c"
     break;
 
-  case 19: /* condition: exp BORO_SOMAN exp  */
-#line 66 "Bison.y"
-                       { (yyval.songka) = ((yyvsp[-2].songka) >= (yyvsp[0].songka)); }
-#line 1222 "Bison.tab.c"
+  case 23: /* condition: exp CHOTO_SOMAN exp  */
+#line 163 "Bison.y"
+                          { (yyval.songka) = ((yyvsp[-2].songka) <= (yyvsp[0].songka)); }
+#line 1302 "Bison.tab.c"
     break;
 
-  case 20: /* condition: exp AND exp  */
-#line 67 "Bison.y"
-                { (yyval.songka) = ((yyvsp[-2].songka) && (yyvsp[0].songka)); }
-#line 1228 "Bison.tab.c"
+  case 24: /* condition: exp BORO_SOMAN exp  */
+#line 164 "Bison.y"
+                         { (yyval.songka) = ((yyvsp[-2].songka) >= (yyvsp[0].songka)); }
+#line 1308 "Bison.tab.c"
     break;
 
-  case 21: /* condition: exp OR exp  */
-#line 68 "Bison.y"
-               { (yyval.songka) = ((yyvsp[-2].songka) || (yyvsp[0].songka)); }
-#line 1234 "Bison.tab.c"
+  case 25: /* condition: condition AND condition  */
+#line 166 "Bison.y"
+                              { (yyval.songka) = ((yyvsp[-2].songka) && (yyvsp[0].songka)); }
+#line 1314 "Bison.tab.c"
     break;
 
-  case 22: /* condition: exp NA exp  */
-#line 69 "Bison.y"
-               { (yyval.songka) = (!(yyvsp[-2].songka)); }
-#line 1240 "Bison.tab.c"
+  case 26: /* condition: condition OR condition  */
+#line 167 "Bison.y"
+                             { (yyval.songka) = ((yyvsp[-2].songka) || (yyvsp[0].songka)); }
+#line 1320 "Bison.tab.c"
+    break;
+
+  case 27: /* condition: NA condition  */
+#line 168 "Bison.y"
+                   { (yyval.songka) = (!(yyvsp[0].songka)); }
+#line 1326 "Bison.tab.c"
     break;
 
 
-#line 1244 "Bison.tab.c"
+#line 1330 "Bison.tab.c"
 
       default: break;
     }
@@ -1433,16 +1519,26 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 72 "Bison.y"
+#line 171 "Bison.y"
+
 
 
 int main()
 {
-    yyin = fopen("Input.txt","r");
-    double result = yyparse();
+    yyin = fopen("Input.txt", "r");
+
+    if (!yyin) {
+        printf("File open error!\n");
+        return 1;
+    }
+
+    yyparse();
+
     fclose(yyin);
-    return result;
+    return 0;
 }
+
+
 
 int yyerror(const char *s)
 {
