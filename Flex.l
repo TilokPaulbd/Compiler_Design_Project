@@ -43,7 +43,7 @@ BORNOMALA      [a-zA-Z_][a-zA-Z0-9_]*
 
 
 {SONGKA}        { yylval.songka= atof(yytext); return SONGKA; }
-{BORNOMALA}     { yylval.bornomala= strdup(yytext); return BOROMALA; }
+{BORNOMALA}     { yylval.bornomala= strdup(yytext); return BORNOMALA; }
 
 
 [ \t\r\n]+           ;   
