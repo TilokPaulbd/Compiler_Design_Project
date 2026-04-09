@@ -59,8 +59,30 @@ extern int yydebug;
     BIYUG = 260,                   /* BIYUG  */
     GUN = 261,                     /* GUN  */
     VAG = 262,                     /* VAG  */
-    SAS = 263,                     /* SAS  */
-    SONGKA = 264                   /* SONGKA  */
+    BORNOMALA = 263,               /* BORNOMALA  */
+    DEKHAU = 264,                  /* DEKHAU  */
+    JODI = 265,                    /* JODI  */
+    OTHOBA = 266,                  /* OTHOBA  */
+    JOTOKHON = 267,                /* JOTOKHON  */
+    JONNO = 268,                   /* JONNO  */
+    BIROTI = 269,                  /* BIROTI  */
+    CHOLUK = 270,                  /* CHOLUK  */
+    FEROT = 271,                   /* FEROT  */
+    SOMAN = 272,                   /* SOMAN  */
+    OSOMAN = 273,                  /* OSOMAN  */
+    CHOTO = 274,                   /* CHOTO  */
+    BORO = 275,                    /* BORO  */
+    CHOTO_SOMAN = 276,             /* CHOTO_SOMAN  */
+    BORO_SOMAN = 277,              /* BORO_SOMAN  */
+    ABONG = 278,                   /* ABONG  */
+    BA = 279,                      /* BA  */
+    NA = 280,                      /* NA  */
+    BBONDONI = 281,                /* BBONDONI  */
+    DBONDONI = 282,                /* DBONDONI  */
+    SONGKA = 283,                  /* SONGKA  */
+    OR = 284,                      /* OR  */
+    AND = 285,                     /* AND  */
+    LOWER_THAN_ELSE = 286          /* LOWER_THAN_ELSE  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -74,7 +96,7 @@ union YYSTYPE
     double songka;
     char *bornomala;
 
-#line 78 "Bison.tab.h"
+#line 100 "Bison.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

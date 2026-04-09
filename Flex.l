@@ -8,22 +8,45 @@
 
 %}
 SONGKA [0-9]+(\.[0-9]+)? 
-BOROMALA      [a-zA-Z_][a-zA-Z0-9_]*
+BORNOMALA      [a-zA-Z_][a-zA-Z0-9_]*
 
 %%
   
-
-{SONGKA}        { yylval.songka= atof(yytext); return SONGKA; }
-{BOROMALA}     { yylval.bornomala= strdup(yytext); return BOROMALA; }
-
 
 "+"             { return JUG; }
 "-"             { return BIYUG; }
 "*"             { return GUN; }
 "/"             { return VAG; }
 
-\n              { return SAS; }
-[ \t]           ;   
+"dekhau"         { return DEKHAU; } //print
+
+"jodi"          { return JODI; } //if
+"othoba"        { return OTHOBA; } //else
+"jotokhon"       { return JOTOKHON; } //while
+"jonno"          { return JONNO; } //for
+"biroti"         { return BIROTI; } //break
+"choluk"         { return CHOLUK; } //continue
+"ferot"         { return FEROT; } //return
+
+"=="            { return SOMAN; }
+"!="            { return OSOMAN; }
+"<"             { return CHOTO; }
+">"             { return BORO; }
+"<= "            { return CHOTO_SOMAN; }
+">= "            { return BORO_SOMAN; }
+"&&"             { return ABONG; }
+"||"             { return BA; }
+"!"             { return NA; }
+
+"("            { return BBONDONI; }
+")"            { return DBONDONI; }
+
+
+{SONGKA}        { yylval.songka= atof(yytext); return SONGKA; }
+{BORNOMALA}     { yylval.bornomala= strdup(yytext); return BOROMALA; }
+
+
+[ \t\r\n]+           ;   
 .               { printf("অজানা চিহ্ন: %s\n", yytext); }
 
 %%
