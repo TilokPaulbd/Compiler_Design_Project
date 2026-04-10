@@ -1,7 +1,25 @@
 jodi (2<3) ( dekhau (123) )
-jodi (2>3) ( dekhau(123) )othoba (dekhau(11+33))
-5 + 4
+jodi (2>3) ( 12) othoba (11)
+dekhau(5 + 4)
 x = 10
 y=5
 z arman x+y
-z
+dekhau(z)
+12
+x=0
+
+numbers = [5, 2, 8, 1, 9, 3]
+sajau numbers chuto_thake     
+sajau numbers boro_thake
+
+palindrome(121)
+palindrome(wow)
+
+sorbucho(numbers)
+sorbonimno(numbers)
+
+ditiyo_sorbucho(numbers)
+ditiyo_sorbonimno(numbers)
+
+
+dekhau(Tilok)

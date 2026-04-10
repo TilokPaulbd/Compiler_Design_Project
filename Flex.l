@@ -28,6 +28,20 @@ BORNOMALA      [a-zA-Z_][a-zA-Z0-9_]*
 "choluk"         { return CHOLUK; } //continue
 "ferot"         { return FEROT; } //return
 
+
+"sajau"        { return SAJAU; }
+"chuto_thake"           { return CHUTO_THAKE; }
+"boro_thake"          { return BORO_THAKE; }
+
+"palindrome"     { return PALINDROME; } 
+
+"sorbucho"  { return SORBUCHO; }  
+"sorbonimno" { return SORBONIMNO; } 
+
+"ditiyo_sorbucho"  { return DITIYO_SORBUCHO; }  
+"ditiyo_sorbonimno" { return DITIYO_SORBONIMNO; } 
+
+
 "=="            { return SOMAN; }
 "!="            { return OSOMAN; }
 "<"             { return CHOTO; }
@@ -42,7 +56,10 @@ BORNOMALA      [a-zA-Z_][a-zA-Z0-9_]*
 ")"            { return DBONDONI; }
 "arman"          { return ARMAN; }
 "="              { return ARMAN; }
-
+"["            { return BT_BONDONI; }
+"]"            { return DT_BONDONI; }
+","             { return COMMA; }
+";"             { return ';'; }
 
 
 
