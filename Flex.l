@@ -18,6 +18,9 @@ BORNOMALA      [a-zA-Z_][a-zA-Z0-9_]*
 "*"             { return GUN; }
 "/"             { return VAG; }
 
+"borgo"        { return BORGO; }
+"borgomul"       { return BORGOMUL; }
+
 "dekhau"         { return DEKHAU; } //print
 
 "jodi"          { return JODI; } //if
@@ -32,6 +35,8 @@ BORNOMALA      [a-zA-Z_][a-zA-Z0-9_]*
 "sajau"        { return SAJAU; }
 "chuto_thake"           { return CHUTO_THAKE; }
 "boro_thake"          { return BORO_THAKE; }
+
+"ulta"  {return ULTA ;} 
 
 "palindrome"     { return PALINDROME; } 
 

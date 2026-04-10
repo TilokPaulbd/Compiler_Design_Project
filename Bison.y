@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 #include "Bison.tab.h"
 
 int yylex(void);
@@ -9,7 +10,8 @@ int yyerror(const char *s);
 extern FILE *yyin;
 
 
-
+double pow_function(double base, double exponent);
+double sqrt_function(double value);
 
 typedef struct{
     char variable_Name[100];
@@ -76,6 +78,9 @@ double get_smallest_from_array(char *array_name);
 double get_second_largest_from_array(char *array_name) ;
 double get_second_smallest_from_array(char *array_name) ;
 
+double reverse_number(int num);
+char* reverse_string(char *str) ;
+
 %}
 
 
@@ -99,7 +104,7 @@ double get_second_smallest_from_array(char *array_name) ;
 %token <bornomala> BORNOMALA
 %token <songka> SONGKA
 
-%token JUG BIYUG GUN VAG
+%token JUG BIYUG GUN VAG BORGOMUL BORGO
 %token DEKHAU
 %token JODI OTHOBA
 %token SOMAN OSOMAN CHOTO BORO CHOTO_SOMAN BORO_SOMAN
@@ -108,9 +113,10 @@ double get_second_smallest_from_array(char *array_name) ;
 %token BBONDONI DBONDONI BT_BONDONI DT_BONDONI
 %token ARMAN COMMA
 %token SAJAU CHUTO_THAKE BORO_THAKE
-%token PALINDROME 
+%token PALINDROME ULTA
 %token SORBUCHO SORBONIMNO
-%token  DITIYO_SORBUCHO DITIYO_SORBONIMNO
+%token  DITIYO_SORBUCHO DITIYO_SORBONIMNO 
+
 %type <songka> exp condition statement index_expr statement_list BLOCK
 %type <array_Data> array_value_list array_values
 
@@ -120,6 +126,7 @@ double get_second_smallest_from_array(char *array_name) ;
 %left SOMAN OSOMAN CHOTO BORO CHOTO_SOMAN BORO_SOMAN
 %left JUG BIYUG
 %left GUN VAG
+%left BORGO BORGOMUL 
 
 
 
@@ -221,9 +228,22 @@ statement:
     }
 
 
+    |ULTA BBONDONI exp DBONDONI {
+        double result = reverse_number((int)$3);
+        printf("%.0lf এর উল্টো: %.0lf\n", $3, result);
+        $$ = result;
+    }
+
+    | ULTA BBONDONI BORNOMALA DBONDONI  {
+        char *result = reverse_string($3);
+        printf("'%s' এর উল্টো: '%s'\n", $3, result);
+        free(result);
+        $$ = 0;
+    }
 
 
         
+    
 
     
     | SORBUCHO BBONDONI BORNOMALA DBONDONI {
@@ -272,7 +292,7 @@ statement:
 
 
 
-    
+
     
     | JODI BBONDONI condition DBONDONI BLOCK {
         if ($3) {
@@ -442,7 +462,29 @@ exp:
         }
     }
     | BBONDONI exp DBONDONI { $$ = $2; }
-    ;
+
+
+
+
+
+    | BORGO BBONDONI exp COMMA exp DBONDONI {
+        double base = $3;
+        double exponent = $5;
+        double result = pow_function(base, exponent);
+        printf("পাওয়ার: %.4lf ^ %.4lf = %.4lf\n", base, exponent, result);
+        $$ = result;
+    }
+    |BORGOMUL BBONDONI exp DBONDONI {
+        double value = $3;
+        if (value < 0) {
+            printf("ত্রুটি: ঋণাত্মক সংখ্যার বর্গমূল নেওয়া যায় না!\n");
+            $$ = 0;
+        } else {
+            double result = sqrt_function(value);
+            printf("বর্গমূল: √%.4lf = %.4lf\n", value, result);
+            $$ = result;
+        }
+    }
 
 
 
@@ -481,9 +523,9 @@ int main()
         return 1;
     }
     
-    printf("========== প্রোগ্রাম শুরু ==========\n");
+    printf("==================\n");
     yyparse();
-    printf("========== প্রোগ্রাম শেষ ==========\n");
+    printf("========== ========\n");
     
     fclose(yyin);
     return 0;
@@ -880,4 +922,122 @@ double get_second_smallest_from_array(char *array_name) {
     }
     
     return second_min;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+double sqrt_function(double value) {
+    if (value < 0) {
+        return -1; 
+    }
+
+    double guess = value / 2.0;
+    double epsilon = 0.000001;
+
+    while ((guess * guess - value) > epsilon || (value - guess * guess) > epsilon) {
+        guess = (guess + value / guess) / 2.0;
+    }
+
+    return guess;
+}
+
+
+double pow_function(double base, double exponent) {
+    double result = 1.0;
+    int i;
+
+  
+    if ((int)exponent == exponent) {
+        int exp = (int)exponent;
+
+        if (exp < 0) {
+            base = 1 / base;
+            exp = -exp;
+        }
+
+        for (i = 0; i < exp; i++) {
+            result *= base;
+        }
+    } else {
+        
+        double temp = exponent;
+        int int_part = (int)temp;
+        double frac_part = temp - int_part;
+
+        
+        for (i = 0; i < int_part; i++) {
+            result *= base;
+        }
+
+      
+        result *= (1 + frac_part * (base - 1));
+    }
+
+    return result;
+}
+
+
+
+
+
+
+
+
+double reverse_number(int num) {
+    int reversed = 0;
+    int original = num;
+    int is_negative = 0;
+    
+
+    if (num < 0) {
+        is_negative = 1;
+        num = -num;
+    }
+    
+    
+    while (num > 0) {
+        reversed = reversed * 10 + (num % 10);
+        num = num / 10;
+    }
+    
+    if (is_negative) {
+        reversed = -reversed;
+    }
+    
+    return reversed;
+}
+
+
+
+
+
+
+char* reverse_string(char *str) {
+    int len = strlen(str);
+    char *reversed = (char*)malloc(len + 1);
+    
+    if (reversed == NULL) {
+        printf("মেমোরি বরাদ্দ করা যায়নি!\n");
+        return "";
+    }
+    
+    for (int i = 0; i < len; i++) {
+        reversed[i] = str[len - 1 - i];
+    }
+    reversed[len] = '\0';
+    
+    return reversed;
 }

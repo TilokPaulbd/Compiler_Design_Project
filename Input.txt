@@ -23,3 +23,8 @@ ditiyo_sorbonimno(numbers)
 
 
 dekhau(Tilok)
+
+borgo(2,3)
+
+ulta(1234)
+ulta("lop")
