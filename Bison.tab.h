@@ -102,8 +102,8 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 90 "Bison.y"
-
+#line 91 "Bison.y"
+                                    /* union bebohar kori sob type er data use korar jonno .nahole sudu ek type er data bebohar korthe partam*/   
     double songka;
     char *bornomala;
     struct {

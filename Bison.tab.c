@@ -75,9 +75,10 @@
 #include <math.h>
 #include "Bison.tab.h"
 
-int yylex(void);
-int yyerror(const char *s);
-extern FILE *yyin;
+int yylex(void);                       /*Flex sudhu rules likhe, oi rules thake toiri houa function yylex() token banay */
+int yyerror(const char *s);            /*syntax error dhorar jonno ar error message dekhanur jonno */
+extern FILE *yyin;                     /*input file thake newar jonno */
+
 
 
 double pow_function(double base, double exponent);
@@ -92,7 +93,7 @@ typedef struct{
 
 
 
-Variable vars[100];
+Variable vars[100];                   /* variable type er array*/
 int var_Count = 0;
 
 
@@ -152,7 +153,7 @@ double reverse_number(int num);
 char* reverse_string(char *str) ;
 
 
-#line 156 "Bison.tab.c"
+#line 157 "Bison.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -223,17 +224,16 @@ enum yysymbol_kind_t
   YYSYMBOL_SORBONIMNO = 40,                /* SORBONIMNO  */
   YYSYMBOL_DITIYO_SORBUCHO = 41,           /* DITIYO_SORBUCHO  */
   YYSYMBOL_DITIYO_SORBONIMNO = 42,         /* DITIYO_SORBONIMNO  */
-  YYSYMBOL_43_ = 43,                       /* ';'  */
-  YYSYMBOL_YYACCEPT = 44,                  /* $accept  */
-  YYSYMBOL_input = 45,                     /* input  */
-  YYSYMBOL_statement = 46,                 /* statement  */
-  YYSYMBOL_BLOCK = 47,                     /* BLOCK  */
-  YYSYMBOL_statement_list = 48,            /* statement_list  */
-  YYSYMBOL_array_value_list = 49,          /* array_value_list  */
-  YYSYMBOL_array_values = 50,              /* array_values  */
-  YYSYMBOL_index_expr = 51,                /* index_expr  */
-  YYSYMBOL_exp = 52,                       /* exp  */
-  YYSYMBOL_condition = 53                  /* condition  */
+  YYSYMBOL_YYACCEPT = 43,                  /* $accept  */
+  YYSYMBOL_input = 44,                     /* input  */
+  YYSYMBOL_statement = 45,                 /* statement  */
+  YYSYMBOL_BLOCK = 46,                     /* BLOCK  */
+  YYSYMBOL_statement_list = 47,            /* statement_list  */
+  YYSYMBOL_array_value_list = 48,          /* array_value_list  */
+  YYSYMBOL_array_values = 49,              /* array_values  */
+  YYSYMBOL_index_expr = 50,                /* index_expr  */
+  YYSYMBOL_exp = 51,                       /* exp  */
+  YYSYMBOL_condition = 52                  /* condition  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -561,16 +561,16 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  2
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   380
+#define YYLAST   377
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  44
+#define YYNTOKENS  43
 /* YYNNTS -- Number of nonterminals.  */
 #define YYNNTS  10
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  61
+#define YYNRULES  59
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  146
+#define YYNSTATES  143
 
 /* YYMAXUTOK -- Last valid token kind.  */
 #define YYMAXUTOK   297
@@ -592,7 +592,7 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,     2,     2,     2,     2,     2,     2,    43,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -623,13 +623,12 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int16 yyrline[] =
 {
-       0,   140,   140,   142,   147,   151,   155,   165,   170,   179,
-     183,   188,   193,   197,   203,   217,   231,   237,   249,   259,
-     270,   283,   297,   304,   311,   318,   326,   334,   344,   347,
-     350,   353,   371,   384,   387,   399,   402,   414,   418,   432,
-     435,   445,   446,   447,   450,   453,   454,   455,   456,   464,
-     470,   477,   495,   496,   497,   498,   499,   500,   501,   502,
-     503,   504
+       0,   142,   142,   144,   148,   150,   154,   160,   165,   172,
+     176,   181,   186,   190,   196,   210,   224,   230,   242,   252,
+     263,   276,   290,   297,   306,   315,   325,   334,   345,   348,
+     366,   379,   382,   394,   397,   409,   413,   427,   430,   440,
+     441,   442,   445,   448,   449,   450,   451,   459,   465,   472,
+     487,   488,   489,   490,   491,   492,   493,   494,   495,   496
 };
 #endif
 
@@ -652,7 +651,7 @@ static const char *const yytname[] =
   "JONNO", "NA", "BBONDONI", "DBONDONI", "BT_BONDONI", "DT_BONDONI",
   "ARMAN", "COMMA", "SAJAU", "CHUTO_THAKE", "BORO_THAKE", "PALINDROME",
   "ULTA", "SORBUCHO", "SORBONIMNO", "DITIYO_SORBUCHO", "DITIYO_SORBONIMNO",
-  "';'", "$accept", "input", "statement", "BLOCK", "statement_list",
+  "$accept", "input", "statement", "BLOCK", "statement_list",
   "array_value_list", "array_values", "index_expr", "exp", "condition", YY_NULLPTR
 };
 
@@ -663,7 +662,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-89)
+#define YYPACT_NINF (-117)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -677,21 +676,21 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int16 yypact[] =
 {
-     -89,   107,   -89,    31,   -89,   -22,   -17,    10,    36,    41,
-      28,    43,    81,    89,    67,    70,    76,    80,    85,   104,
-     -89,    -3,     6,    32,    81,    81,    84,    47,    47,   -89,
-     -89,   108,    20,   -13,   102,   111,   131,   139,   151,   152,
-      81,    81,    81,    81,   -89,   -89,   135,   143,    81,   155,
-      60,    13,    93,    95,    47,    47,   361,    23,    30,   133,
-     -89,   -89,   -89,   153,   154,   123,   165,   163,   164,   166,
-     171,   157,   157,   -89,   -89,   170,   173,   175,   177,   155,
-     -89,    81,   -89,   -89,   -89,   345,   101,    81,    81,    81,
-      81,    81,    81,    47,    47,   176,   183,   181,   182,   -89,
-     -89,   -89,   -89,   -89,   -89,   -89,   -89,    81,    81,   -89,
-      81,   172,   -89,   155,   155,   155,   155,   155,   155,   -89,
-     179,   307,   201,   307,   -89,   -89,   -89,   155,   155,   155,
-     -89,   -89,   147,   189,   187,   205,   -89,   307,   -89,   -89,
-     191,   227,   307,   -89,   267,   -89
+    -117,   104,  -117,    25,  -117,   -25,   -22,   -17,    -7,     5,
+    -117,  -117,    43,    33,    11,    15,    26,    35,    38,    42,
+    -117,   194,    45,    28,    43,    43,    78,    41,    41,    56,
+      54,    66,   107,    81,    69,    86,    89,   100,    43,    43,
+      43,    43,  -117,    64,    74,    43,   194,    92,     2,    90,
+     128,    41,    41,   358,    -5,    93,   146,  -117,  -117,  -117,
+      83,    94,   122,   162,    98,   102,   110,   133,   153,   153,
+    -117,  -117,    97,   139,   148,   147,   194,  -117,    43,  -117,
+    -117,  -117,   342,   134,    43,    43,    43,    43,    43,    43,
+      41,    41,   161,   164,   159,   166,  -117,  -117,  -117,  -117,
+    -117,  -117,  -117,  -117,    43,    43,  -117,    43,   169,  -117,
+     194,   194,   194,   194,   194,   194,  -117,   179,   304,   195,
+     304,  -117,  -117,  -117,   194,   194,   194,  -117,  -117,   144,
+     181,   184,   197,  -117,   304,  -117,  -117,   183,   224,   304,
+    -117,   264,  -117
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -699,33 +698,33 @@ static const yytype_int16 yypact[] =
    means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       2,     0,     1,    42,    41,     0,     0,     0,     0,     0,
-      29,    31,     0,     0,     0,     0,     0,     0,     0,     0,
-       3,     5,     0,     0,     0,     0,     0,     0,     0,    28,
-      30,    42,     0,     0,     0,     0,     0,     0,     0,     0,
-       0,     0,     0,     0,     4,    40,     0,     0,    35,     6,
-       0,     0,    42,     0,     0,     0,     0,     0,     0,     0,
-      49,    12,    13,     0,     0,    42,     0,     0,     0,     0,
-       0,    45,    46,    47,    48,    43,    44,     0,    36,    37,
-      51,     0,     8,     7,    60,     0,     0,     0,     0,     0,
-       0,     0,     0,     0,     0,     0,     0,     0,     0,    14,
-      15,    17,    16,    18,    19,    20,    21,     0,     0,     9,
-       0,     0,    61,    52,    53,    54,    55,    56,    57,    58,
-      59,     0,    22,     0,    26,    43,    44,    10,    11,    38,
-      50,    33,     0,     0,     0,    24,    34,     0,    23,    27,
-       0,     0,     0,    32,     0,    25
+       2,     0,     1,    40,    39,     0,     0,     0,     0,     0,
+      28,    29,     0,     0,     0,     0,     0,     0,     0,     0,
+       3,     5,     0,     0,     0,     0,     0,     0,     0,    40,
+       0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+       0,     0,    38,     0,     0,    33,     6,     0,     0,    40,
+       0,     0,     0,     0,     0,     0,     0,    47,    12,    13,
+       0,     0,    40,     0,     0,     0,     0,     0,    43,    44,
+      45,    46,    41,    42,     0,    34,    35,    49,     0,     8,
+       7,    58,     0,     0,     0,     0,     0,     0,     0,     0,
+       0,     0,     0,     0,     0,     0,    14,    15,    17,    16,
+      18,    19,    20,    21,     0,     0,     9,     0,     0,    59,
+      50,    51,    52,    53,    54,    55,    56,    57,     4,    22,
+       4,    26,    41,    42,    10,    11,    36,    48,    31,     0,
+       0,     0,    24,    32,     4,    23,    27,     0,     0,     4,
+      30,     0,    25
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int16 yypgoto[] =
 {
-     -89,   -89,    -1,   -88,   -84,   -89,   -89,   161,   -11,   -21
+    -117,  -117,    -1,   -88,  -116,  -117,  -117,   151,   -11,   -26
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_uint8 yydefgoto[] =
 {
-       0,     1,   131,   122,   132,    77,    78,    47,    21,    57
+       0,     1,   128,   119,   129,    74,    75,    44,    21,    54
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -733,133 +732,129 @@ static const yytype_uint8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_uint8 yytable[] =
 {
-      20,    32,    40,    41,    42,    43,    24,    58,   124,    45,
-      46,    25,    49,    50,    51,    53,    56,    56,    40,    41,
-      42,    43,    61,    62,    66,    40,    41,    42,    43,    71,
-      72,    73,    74,    84,    86,    31,     4,    79,    26,   134,
-      44,     5,     6,    56,    85,   138,    81,    93,    94,    60,
-      31,     4,    95,   141,    93,    94,     5,     6,   144,    96,
-      12,    22,    48,    23,    27,    40,    41,    42,    43,    28,
-     111,    29,   119,   120,    54,    55,   113,   114,   115,   116,
-     117,   118,    56,    56,    31,     4,    30,    52,     4,    80,
-       5,     6,    33,     5,     6,    34,   127,   128,    35,   129,
-      40,    41,    42,    43,    36,    63,    64,     2,    37,    12,
-       3,     4,    12,    38,    65,     4,     5,     6,     7,     8,
-       5,     6,    82,    59,    83,    93,    94,     9,    10,    11,
-     112,   136,    39,   136,    67,    12,    45,    97,    59,    12,
-     136,    13,    68,   136,    14,    15,    16,    17,    18,    19,
-       3,     4,   101,    59,    69,    70,     5,     6,     7,     8,
-      40,    41,    42,    43,    42,    43,    75,     9,    10,    11,
-      40,    41,    42,    43,    76,    12,   135,    40,    41,    42,
-      43,    13,    99,   100,    14,    15,    16,    17,    18,    19,
-       3,     4,   103,   104,   102,   105,     5,     6,     7,     8,
-     106,   130,   107,    93,   121,   108,   109,     9,    10,    11,
-     110,   123,   125,   126,   133,    12,   139,   137,   140,   142,
-      98,    13,     0,     0,    14,    15,    16,    17,    18,    19,
-       3,     4,     0,     0,     0,     0,     5,     6,     7,     8,
-       0,     0,     0,     0,     0,     0,     0,     9,    10,    11,
-       0,     0,     0,     0,     0,    12,   143,     0,     0,     0,
-       0,    13,     0,     0,    14,    15,    16,    17,    18,    19,
-       3,     4,     0,     0,     0,     0,     5,     6,     7,     8,
-       0,     0,     0,     0,     0,     0,     0,     9,    10,    11,
-       0,     0,     0,     0,     0,    12,   145,     0,     0,     0,
-       0,    13,     0,     0,    14,    15,    16,    17,    18,    19,
-       3,     4,     0,     0,     0,     0,     5,     6,     7,     8,
-       0,     0,     0,     0,     0,     0,     0,     9,    10,    11,
-       0,     0,     0,     0,     0,    12,     0,     0,     0,     0,
-       0,    13,     0,     0,    14,    15,    16,    17,    18,    19,
-      40,    41,    42,    43,     0,     0,     0,     0,     0,    87,
-      88,    89,    90,    91,    92,     0,    40,    41,    42,    43,
-       0,     0,     0,     0,    60,    87,    88,    89,    90,    91,
-      92
+      20,    30,    55,    24,   131,   121,    25,    38,    39,    40,
+      41,    26,    46,    47,    48,    50,    53,    53,   138,    90,
+      91,    27,    63,   141,    92,    81,    83,    68,    69,    70,
+      71,    29,     4,    28,    76,    78,    31,     5,     6,    32,
+      53,    82,   135,    33,    29,     4,    29,     4,    42,    43,
+       5,     6,     5,     6,    34,    22,    12,    23,    45,    38,
+      39,    40,    41,    35,   116,   117,    36,   108,    51,    52,
+      37,    12,    64,   110,   111,   112,   113,   114,   115,    53,
+      53,    49,     4,    57,    62,     4,    56,     5,     6,    65,
+       5,     6,    66,   124,   125,    72,   126,    38,    39,    40,
+      41,    58,    59,    67,     2,    73,    12,     3,     4,    12,
+      60,    61,    96,     5,     6,     7,     8,    90,    91,    79,
+      56,    77,    93,    97,     9,    10,    11,   100,   133,   104,
+     133,   101,    12,    38,    39,    40,    41,   133,    13,   102,
+     133,    14,    15,    16,    17,    18,    19,     3,     4,    42,
+      94,    98,    56,     5,     6,     7,     8,    80,    90,    91,
+      40,    41,   103,   109,     9,    10,    11,    38,    39,    40,
+      41,   105,    12,   132,    38,    39,    40,    41,    13,   106,
+     107,    14,    15,    16,    17,    18,    19,     3,     4,   118,
+     122,    99,   120,     5,     6,     7,     8,   123,   127,    38,
+      39,    40,    41,    90,     9,    10,    11,    95,   130,   134,
+     137,   139,    12,   136,     0,     0,     0,     0,    13,     0,
+       0,    14,    15,    16,    17,    18,    19,     3,     4,     0,
+       0,     0,     0,     5,     6,     7,     8,     0,     0,     0,
+       0,     0,     0,     0,     9,    10,    11,     0,     0,     0,
+       0,     0,    12,   140,     0,     0,     0,     0,    13,     0,
+       0,    14,    15,    16,    17,    18,    19,     3,     4,     0,
+       0,     0,     0,     5,     6,     7,     8,     0,     0,     0,
+       0,     0,     0,     0,     9,    10,    11,     0,     0,     0,
+       0,     0,    12,   142,     0,     0,     0,     0,    13,     0,
+       0,    14,    15,    16,    17,    18,    19,     3,     4,     0,
+       0,     0,     0,     5,     6,     7,     8,     0,     0,     0,
+       0,     0,     0,     0,     9,    10,    11,     0,     0,     0,
+       0,     0,    12,     0,     0,     0,     0,     0,    13,     0,
+       0,    14,    15,    16,    17,    18,    19,    38,    39,    40,
+      41,     0,     0,     0,     0,     0,    84,    85,    86,    87,
+      88,    89,     0,    38,    39,    40,    41,     0,     0,     0,
+       0,    57,    84,    85,    86,    87,    88,    89
 };
 
 static const yytype_int16 yycheck[] =
 {
-       1,    12,     5,     6,     7,     8,    28,    28,    96,     3,
-       4,    28,    23,    24,    25,    26,    27,    28,     5,     6,
-       7,     8,    35,    36,    35,     5,     6,     7,     8,    40,
-      41,    42,    43,    54,    55,     3,     4,    48,    28,   123,
-      43,     9,    10,    54,    55,   133,    33,    24,    25,    29,
-       3,     4,    29,   137,    24,    25,     9,    10,   142,    29,
-      28,    30,    30,    32,    28,     5,     6,     7,     8,    28,
-      81,    43,    93,    94,    27,    28,    87,    88,    89,    90,
-      91,    92,    93,    94,     3,     4,    43,     3,     4,    29,
-       9,    10,     3,     9,    10,    28,   107,   108,    28,   110,
-       5,     6,     7,     8,    28,     3,     4,     0,    28,    28,
-       3,     4,    28,    28,     3,     4,     9,    10,    11,    12,
-       9,    10,    29,    30,    29,    24,    25,    20,    21,    22,
-      29,   132,    28,   134,     3,    28,     3,     4,    30,    28,
-     141,    34,     3,   144,    37,    38,    39,    40,    41,    42,
-       3,     4,    29,    30,     3,     3,     9,    10,    11,    12,
-       5,     6,     7,     8,     7,     8,    31,    20,    21,    22,
-       5,     6,     7,     8,    31,    28,    29,     5,     6,     7,
-       8,    34,    29,    29,    37,    38,    39,    40,    41,    42,
-       3,     4,    29,    29,    29,    29,     9,    10,    11,    12,
-      29,    29,    32,    24,    28,    32,    31,    20,    21,    22,
-      33,    28,    31,    31,    13,    28,    29,    28,    13,    28,
-      59,    34,    -1,    -1,    37,    38,    39,    40,    41,    42,
-       3,     4,    -1,    -1,    -1,    -1,     9,    10,    11,    12,
-      -1,    -1,    -1,    -1,    -1,    -1,    -1,    20,    21,    22,
-      -1,    -1,    -1,    -1,    -1,    28,    29,    -1,    -1,    -1,
-      -1,    34,    -1,    -1,    37,    38,    39,    40,    41,    42,
-       3,     4,    -1,    -1,    -1,    -1,     9,    10,    11,    12,
-      -1,    -1,    -1,    -1,    -1,    -1,    -1,    20,    21,    22,
-      -1,    -1,    -1,    -1,    -1,    28,    29,    -1,    -1,    -1,
-      -1,    34,    -1,    -1,    37,    38,    39,    40,    41,    42,
-       3,     4,    -1,    -1,    -1,    -1,     9,    10,    11,    12,
-      -1,    -1,    -1,    -1,    -1,    -1,    -1,    20,    21,    22,
-      -1,    -1,    -1,    -1,    -1,    28,    -1,    -1,    -1,    -1,
-      -1,    34,    -1,    -1,    37,    38,    39,    40,    41,    42,
-       5,     6,     7,     8,    -1,    -1,    -1,    -1,    -1,    14,
-      15,    16,    17,    18,    19,    -1,     5,     6,     7,     8,
-      -1,    -1,    -1,    -1,    29,    14,    15,    16,    17,    18,
-      19
+       1,    12,    28,    28,   120,    93,    28,     5,     6,     7,
+       8,    28,    23,    24,    25,    26,    27,    28,   134,    24,
+      25,    28,    33,   139,    29,    51,    52,    38,    39,    40,
+      41,     3,     4,    28,    45,    33,     3,     9,    10,    28,
+      51,    52,   130,    28,     3,     4,     3,     4,     3,     4,
+       9,    10,     9,    10,    28,    30,    28,    32,    30,     5,
+       6,     7,     8,    28,    90,    91,    28,    78,    27,    28,
+      28,    28,     3,    84,    85,    86,    87,    88,    89,    90,
+      91,     3,     4,    29,     3,     4,    30,     9,    10,     3,
+       9,    10,     3,   104,   105,    31,   107,     5,     6,     7,
+       8,    35,    36,     3,     0,    31,    28,     3,     4,    28,
+       3,     4,    29,     9,    10,    11,    12,    24,    25,    29,
+      30,    29,    29,    29,    20,    21,    22,    29,   129,    32,
+     131,    29,    28,     5,     6,     7,     8,   138,    34,    29,
+     141,    37,    38,    39,    40,    41,    42,     3,     4,     3,
+       4,    29,    30,     9,    10,    11,    12,    29,    24,    25,
+       7,     8,    29,    29,    20,    21,    22,     5,     6,     7,
+       8,    32,    28,    29,     5,     6,     7,     8,    34,    31,
+      33,    37,    38,    39,    40,    41,    42,     3,     4,    28,
+      31,    29,    28,     9,    10,    11,    12,    31,    29,     5,
+       6,     7,     8,    24,    20,    21,    22,    56,    13,    28,
+      13,    28,    28,    29,    -1,    -1,    -1,    -1,    34,    -1,
+      -1,    37,    38,    39,    40,    41,    42,     3,     4,    -1,
+      -1,    -1,    -1,     9,    10,    11,    12,    -1,    -1,    -1,
+      -1,    -1,    -1,    -1,    20,    21,    22,    -1,    -1,    -1,
+      -1,    -1,    28,    29,    -1,    -1,    -1,    -1,    34,    -1,
+      -1,    37,    38,    39,    40,    41,    42,     3,     4,    -1,
+      -1,    -1,    -1,     9,    10,    11,    12,    -1,    -1,    -1,
+      -1,    -1,    -1,    -1,    20,    21,    22,    -1,    -1,    -1,
+      -1,    -1,    28,    29,    -1,    -1,    -1,    -1,    34,    -1,
+      -1,    37,    38,    39,    40,    41,    42,     3,     4,    -1,
+      -1,    -1,    -1,     9,    10,    11,    12,    -1,    -1,    -1,
+      -1,    -1,    -1,    -1,    20,    21,    22,    -1,    -1,    -1,
+      -1,    -1,    28,    -1,    -1,    -1,    -1,    -1,    34,    -1,
+      -1,    37,    38,    39,    40,    41,    42,     5,     6,     7,
+       8,    -1,    -1,    -1,    -1,    -1,    14,    15,    16,    17,
+      18,    19,    -1,     5,     6,     7,     8,    -1,    -1,    -1,
+      -1,    29,    14,    15,    16,    17,    18,    19
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
    state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,    45,     0,     3,     4,     9,    10,    11,    12,    20,
+       0,    44,     0,     3,     4,     9,    10,    11,    12,    20,
       21,    22,    28,    34,    37,    38,    39,    40,    41,    42,
-      46,    52,    30,    32,    28,    28,    28,    28,    28,    43,
-      43,     3,    52,     3,    28,    28,    28,    28,    28,    28,
-       5,     6,     7,     8,    43,     3,     4,    51,    30,    52,
-      52,    52,     3,    52,    27,    28,    52,    53,    53,    30,
-      29,    35,    36,     3,     4,     3,    52,     3,     3,     3,
-       3,    52,    52,    52,    52,    31,    31,    49,    50,    52,
-      29,    33,    29,    29,    53,    52,    53,    14,    15,    16,
-      17,    18,    19,    24,    25,    29,    29,     4,    51,    29,
-      29,    29,    29,    29,    29,    29,    29,    32,    32,    31,
-      33,    52,    29,    52,    52,    52,    52,    52,    52,    53,
-      53,    28,    47,    28,    47,    31,    31,    52,    52,    52,
-      29,    46,    48,    13,    48,    29,    46,    28,    47,    29,
-      13,    48,    28,    29,    48,    29
+      45,    51,    30,    32,    28,    28,    28,    28,    28,     3,
+      51,     3,    28,    28,    28,    28,    28,    28,     5,     6,
+       7,     8,     3,     4,    50,    30,    51,    51,    51,     3,
+      51,    27,    28,    51,    52,    52,    30,    29,    35,    36,
+       3,     4,     3,    51,     3,     3,     3,     3,    51,    51,
+      51,    51,    31,    31,    48,    49,    51,    29,    33,    29,
+      29,    52,    51,    52,    14,    15,    16,    17,    18,    19,
+      24,    25,    29,    29,     4,    50,    29,    29,    29,    29,
+      29,    29,    29,    29,    32,    32,    31,    33,    51,    29,
+      51,    51,    51,    51,    51,    51,    52,    52,    28,    46,
+      28,    46,    31,    31,    51,    51,    51,    29,    45,    47,
+      13,    47,    29,    45,    28,    46,    29,    13,    47,    28,
+      29,    47,    29
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
-       0,    44,    45,    45,    46,    46,    46,    46,    46,    46,
-      46,    46,    46,    46,    46,    46,    46,    46,    46,    46,
-      46,    46,    46,    46,    46,    46,    46,    46,    46,    46,
-      46,    46,    47,    48,    48,    49,    49,    50,    50,    51,
-      51,    52,    52,    52,    52,    52,    52,    52,    52,    52,
-      52,    52,    53,    53,    53,    53,    53,    53,    53,    53,
-      53,    53
+       0,    43,    44,    44,    45,    45,    45,    45,    45,    45,
+      45,    45,    45,    45,    45,    45,    45,    45,    45,    45,
+      45,    45,    45,    45,    45,    45,    45,    45,    45,    45,
+      46,    47,    47,    48,    48,    49,    49,    50,    50,    51,
+      51,    51,    51,    51,    51,    51,    51,    51,    51,    51,
+      52,    52,    52,    52,    52,    52,    52,    52,    52,    52
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
-       0,     2,     0,     2,     2,     1,     3,     4,     4,     5,
+       0,     2,     0,     2,     0,     1,     3,     4,     4,     5,
        6,     6,     3,     3,     4,     4,     4,     4,     4,     4,
-       4,     4,     5,     7,     7,    11,     5,     7,     2,     1,
-       2,     1,     3,     1,     2,     0,     1,     1,     3,     1,
-       1,     1,     1,     4,     4,     3,     3,     3,     3,     3,
-       6,     4,     3,     3,     3,     3,     3,     3,     3,     3,
-       2,     3
+       4,     4,     5,     7,     7,    11,     5,     7,     1,     1,
+       3,     1,     2,     0,     1,     1,     3,     1,     1,     1,
+       1,     4,     4,     3,     3,     3,     3,     3,     6,     4,
+       3,     3,     3,     3,     3,     3,     3,     3,     2,     3
 };
 
 
@@ -1322,201 +1317,192 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-  case 4: /* statement: exp ';'  */
-#line 147 "Bison.y"
-              {
-          printf("%lf\n", (yyvsp[-1].songka));
-          (yyval.songka) = (yyvsp[-1].songka);
-      }
-#line 1332 "Bison.tab.c"
-    break;
-
   case 5: /* statement: exp  */
-#line 151 "Bison.y"
+#line 150 "Bison.y"
           {
-          printf("%lf\n", (yyvsp[0].songka));
+          printf("%lf\n", (yyvsp[0].songka));      /*1st er ta $1 then 2$ aivabe kaj kore */      
           (yyval.songka) = (yyvsp[0].songka);
       }
-#line 1341 "Bison.tab.c"
+#line 1327 "Bison.tab.c"
     break;
 
   case 6: /* statement: BORNOMALA ARMAN exp  */
-#line 155 "Bison.y"
-                          {
+#line 154 "Bison.y"
+                          {                           /* aigula  input a kivabe lekha thake call orbe oita */
         set_Variable_Value((yyvsp[-2].bornomala), (yyvsp[0].songka));
         printf("%lf\n", (yyvsp[0].songka));
         (yyval.songka) = (yyvsp[0].songka);
       }
-#line 1351 "Bison.tab.c"
+#line 1337 "Bison.tab.c"
     break;
 
   case 7: /* statement: DEKHAU BBONDONI exp DBONDONI  */
-#line 165 "Bison.y"
+#line 160 "Bison.y"
                                    {
         printf("%lf\n", (yyvsp[-1].songka));
         (yyval.songka) = (yyvsp[-1].songka);
       }
-#line 1360 "Bison.tab.c"
+#line 1346 "Bison.tab.c"
     break;
 
   case 8: /* statement: DEKHAU BBONDONI BORNOMALA DBONDONI  */
-#line 170 "Bison.y"
+#line 165 "Bison.y"
                                          {
 
         printf("%s\n", (yyvsp[-1].bornomala));
-        (yyval.songka) = 0;
+        (yyval.songka) = 0;                                   /* statement er return value 0 */
     }
-#line 1370 "Bison.tab.c"
+#line 1356 "Bison.tab.c"
     break;
 
   case 9: /* statement: BORNOMALA ARMAN BT_BONDONI array_value_list DT_BONDONI  */
-#line 179 "Bison.y"
+#line 172 "Bison.y"
                                                              {
         initialize_Array_With_Values((yyvsp[-4].bornomala), (yyvsp[-1].array_Data).values, (yyvsp[-1].array_Data).count);
         (yyval.songka) = 0;
       }
-#line 1379 "Bison.tab.c"
+#line 1365 "Bison.tab.c"
     break;
 
   case 10: /* statement: BORNOMALA BT_BONDONI SONGKA DT_BONDONI ARMAN exp  */
-#line 183 "Bison.y"
+#line 176 "Bison.y"
                                                        {
-        set_Array_Value((yyvsp[-5].bornomala), (int)(yyvsp[-3].songka), (yyvsp[0].songka));
+        set_Array_Value((yyvsp[-5].bornomala), (int)(yyvsp[-3].songka), (yyvsp[0].songka));                        /* $3  int type a convert convert kora hoiche */
         printf("%lf\n", (yyvsp[0].songka));
         (yyval.songka) = (yyvsp[0].songka);
       }
-#line 1389 "Bison.tab.c"
+#line 1375 "Bison.tab.c"
     break;
 
   case 11: /* statement: BORNOMALA BT_BONDONI index_expr DT_BONDONI ARMAN exp  */
-#line 188 "Bison.y"
+#line 181 "Bison.y"
                                                            {
         set_Array_Value((yyvsp[-5].bornomala), (yyvsp[-3].songka), (yyvsp[0].songka));
         printf("%lf\n", (yyvsp[0].songka));
         (yyval.songka) = (yyvsp[0].songka);
       }
-#line 1399 "Bison.tab.c"
+#line 1385 "Bison.tab.c"
     break;
 
   case 12: /* statement: SAJAU BORNOMALA CHUTO_THAKE  */
-#line 193 "Bison.y"
+#line 186 "Bison.y"
                                  {
         sort_Array((yyvsp[-1].bornomala), 1);
         (yyval.songka) = 0;
       }
-#line 1408 "Bison.tab.c"
+#line 1394 "Bison.tab.c"
     break;
 
   case 13: /* statement: SAJAU BORNOMALA BORO_THAKE  */
-#line 197 "Bison.y"
+#line 190 "Bison.y"
                                 {
         sort_Array((yyvsp[-1].bornomala), 0);
         (yyval.songka) = 0;
       }
-#line 1417 "Bison.tab.c"
+#line 1403 "Bison.tab.c"
     break;
 
   case 14: /* statement: PALINDROME BBONDONI BORNOMALA DBONDONI  */
-#line 203 "Bison.y"
+#line 196 "Bison.y"
                                              {
         int result = is_palindrome_string((yyvsp[-1].bornomala));
         if (result) {
-            printf("'%s' একটি প্যালিনড্রোম!\n", (yyvsp[-1].bornomala));
+            printf("'%s' aita ekta palindrome\n", (yyvsp[-1].bornomala));
             printf("1\n");
             (yyval.songka) = 1;
         } else {
-            printf("'%s' একটি প্যালিনড্রোম নয়!\n", (yyvsp[-1].bornomala));
+            printf("'%s' aita ekta palindrome na\n", (yyvsp[-1].bornomala));
             printf("0\n");
             (yyval.songka) = 0;
         }
     }
-#line 1434 "Bison.tab.c"
+#line 1420 "Bison.tab.c"
     break;
 
   case 15: /* statement: PALINDROME BBONDONI SONGKA DBONDONI  */
-#line 217 "Bison.y"
+#line 210 "Bison.y"
                                           {
         int result = is_palindrome_number((int)(yyvsp[-1].songka));
         if (result) {
-            printf("%.0lf একটি প্যালিনড্রোম সংখ্যা!\n", (yyvsp[-1].songka));
+            printf("%.0lf aita ekta palindrome\n", (yyvsp[-1].songka));
             printf("1\n");
             (yyval.songka) = 1;
         } else {
-            printf("%.0lf একটি প্যালিনড্রোম সংখ্যা নয়!\n", (yyvsp[-1].songka));
+            printf("%.0lf aita ekta palindrome na\n", (yyvsp[-1].songka));
             printf("0\n");
             (yyval.songka) = 0;
         }
     }
-#line 1451 "Bison.tab.c"
+#line 1437 "Bison.tab.c"
     break;
 
   case 16: /* statement: ULTA BBONDONI exp DBONDONI  */
-#line 231 "Bison.y"
+#line 224 "Bison.y"
                                 {
         double result = reverse_number((int)(yyvsp[-1].songka));
-        printf("%.0lf এর উল্টো: %.0lf\n", (yyvsp[-1].songka), result);
+        printf("%.0lf er ulta sonkha %.0lf\n", (yyvsp[-1].songka), result);
         (yyval.songka) = result;
     }
-#line 1461 "Bison.tab.c"
+#line 1447 "Bison.tab.c"
     break;
 
   case 17: /* statement: ULTA BBONDONI BORNOMALA DBONDONI  */
-#line 237 "Bison.y"
+#line 230 "Bison.y"
                                         {
-        char *result = reverse_string((yyvsp[-1].bornomala));
-        printf("'%s' এর উল্টো: '%s'\n", (yyvsp[-1].bornomala), result);
-        free(result);
+        char *result = reverse_string((yyvsp[-1].bornomala));              /* string return korar ekmatro way pointer use kora .nahole sudhu charecter return korbe */        
+        printf("'%s' er ulta '%s'\n", (yyvsp[-1].bornomala), result);
+        free(result);                       /*memory > use > free() > memory release */
         (yyval.songka) = 0;
     }
-#line 1472 "Bison.tab.c"
+#line 1458 "Bison.tab.c"
     break;
 
   case 18: /* statement: SORBUCHO BBONDONI BORNOMALA DBONDONI  */
-#line 249 "Bison.y"
+#line 242 "Bison.y"
                                            {
         double result = get_largest_from_array((yyvsp[-1].bornomala));
-        printf("'%s' অ্যারের সবচেয়ে বড় সংখ্যা: %lf\n", (yyvsp[-1].bornomala), result);
+        printf("'%s' Sorbucho Songkha : %lf\n", (yyvsp[-1].bornomala), result);
         (yyval.songka) = result;
     }
-#line 1482 "Bison.tab.c"
+#line 1468 "Bison.tab.c"
     break;
 
   case 19: /* statement: SORBONIMNO BBONDONI BORNOMALA DBONDONI  */
-#line 259 "Bison.y"
+#line 252 "Bison.y"
                                              {
         double result = get_smallest_from_array((yyvsp[-1].bornomala));
-        printf("'%s' অ্যারের সবচেয়ে ছোট সংখ্যা: %lf\n", (yyvsp[-1].bornomala), result);
+        printf("'%s' Sorbonimno Songkha : %lf\n", (yyvsp[-1].bornomala), result);
         (yyval.songka) = result;
     }
-#line 1492 "Bison.tab.c"
+#line 1478 "Bison.tab.c"
     break;
 
   case 20: /* statement: DITIYO_SORBUCHO BBONDONI BORNOMALA DBONDONI  */
-#line 270 "Bison.y"
+#line 263 "Bison.y"
                                                   {
         double result = get_second_largest_from_array((yyvsp[-1].bornomala));
-        if (result != -1) {
-            printf("'%s' অ্যারের দ্বিতীয় সবচেয়ে বড় সংখ্যা: %lf\n", (yyvsp[-1].bornomala), result);
+        if (result != -1) {                                       /* array tha 2nd largest na thakle function -1 return kore */
+            printf("'%s' Ditio Sorbucho Songkha : %lf\n", (yyvsp[-1].bornomala), result);
         }
         (yyval.songka) = result;
     }
-#line 1504 "Bison.tab.c"
+#line 1490 "Bison.tab.c"
     break;
 
   case 21: /* statement: DITIYO_SORBONIMNO BBONDONI BORNOMALA DBONDONI  */
-#line 283 "Bison.y"
+#line 276 "Bison.y"
                                                      {
         double result = get_second_smallest_from_array((yyvsp[-1].bornomala));
         if (result != -1) {
-            printf("'%s' অ্যারের দ্বিতীয় সবচেয়ে ছোট সংখ্যা: %lf\n", (yyvsp[-1].bornomala), result);
+            printf("'%s' Ditio Sorbonimno Songkha : %lf\n", (yyvsp[-1].bornomala), result);
         }
         (yyval.songka) = result;
     }
-#line 1516 "Bison.tab.c"
+#line 1502 "Bison.tab.c"
     break;
 
   case 22: /* statement: JODI BBONDONI condition DBONDONI BLOCK  */
-#line 297 "Bison.y"
+#line 290 "Bison.y"
                                              {
         if ((yyvsp[-2].songka)) {
             (yyval.songka) = (yyvsp[0].songka);
@@ -1524,56 +1510,63 @@ yyreduce:
             (yyval.songka) = 0;
         }
       }
-#line 1528 "Bison.tab.c"
+#line 1514 "Bison.tab.c"
     break;
 
   case 23: /* statement: JODI BBONDONI condition DBONDONI BLOCK OTHOBA BLOCK  */
-#line 304 "Bison.y"
+#line 297 "Bison.y"
                                                           {
         if ((yyvsp[-4].songka)) {
             (yyval.songka) = (yyvsp[-2].songka);
+            printf("JODI condition sotikh hoyeche\n");
         } else {
+            printf("JODI condition sotikh hoyni\n");
             (yyval.songka) = (yyvsp[0].songka);
         }
       }
-#line 1540 "Bison.tab.c"
+#line 1528 "Bison.tab.c"
     break;
 
   case 24: /* statement: JODI BBONDONI condition DBONDONI BBONDONI statement_list DBONDONI  */
-#line 311 "Bison.y"
+#line 306 "Bison.y"
                                                                         {
         if ((yyvsp[-4].songka)) {
             (yyval.songka) = (yyvsp[-1].songka);
+            printf("JODI condition sotikh hoyeche\n");
         } else {
+            printf("JODI condition sotikh hoyni\n");
             (yyval.songka) = 0;
         }
       }
-#line 1552 "Bison.tab.c"
+#line 1542 "Bison.tab.c"
     break;
 
   case 25: /* statement: JODI BBONDONI condition DBONDONI BBONDONI statement_list DBONDONI OTHOBA BBONDONI statement_list DBONDONI  */
-#line 319 "Bison.y"
+#line 316 "Bison.y"
                                               {
         if ((yyvsp[-8].songka)) {
             (yyval.songka) = (yyvsp[-5].songka);
+            printf("JODI condition sotikh hoyeche\n");
         } else {
+            printf("JODI condition sotikh hoyni\n");
             (yyval.songka) = (yyvsp[-1].songka);
         }
       }
-#line 1564 "Bison.tab.c"
+#line 1556 "Bison.tab.c"
     break;
 
   case 26: /* statement: JOTOKHON BBONDONI condition DBONDONI BLOCK  */
-#line 326 "Bison.y"
+#line 325 "Bison.y"
                                                  {
         while ((yyvsp[-2].songka)) {
             (yyval.songka) = (yyvsp[0].songka);
+            printf("JOTOKHON condition sotikh thakbe, loop cholbe\n");
             if((yyval.songka) == -1) break;
-            if((yyval.songka) == -2) continue;
+            if((yyval.songka) == -2) continue;                   /* -1 , -2 aigula flag value condition ($3) cholbe kina decide kore -1 hobe loop sas -2 hole loop cholbe */
         }
         (yyval.songka) = 0;
       }
-#line 1577 "Bison.tab.c"
+#line 1570 "Bison.tab.c"
     break;
 
   case 27: /* statement: JOTOKHON BBONDONI condition DBONDONI BBONDONI statement_list DBONDONI  */
@@ -1581,276 +1574,261 @@ yyreduce:
                                                                             {
         while ((yyvsp[-4].songka)) {
             (yyval.songka) = (yyvsp[-1].songka);
+            printf("JOTOKHON condition sotikh thakbe, loop cholbe\n");
             if((yyval.songka) == -1) break;
             if((yyval.songka) == -2) continue;
         }
         (yyval.songka) = 0;
       }
-#line 1590 "Bison.tab.c"
+#line 1584 "Bison.tab.c"
     break;
 
-  case 28: /* statement: BIROTI ';'  */
-#line 344 "Bison.y"
-                 {
-        (yyval.songka) = -1;
-      }
-#line 1598 "Bison.tab.c"
-    break;
-
-  case 29: /* statement: BIROTI  */
-#line 347 "Bison.y"
+  case 28: /* statement: BIROTI  */
+#line 345 "Bison.y"
              {
         (yyval.songka) = -1;
       }
-#line 1606 "Bison.tab.c"
+#line 1592 "Bison.tab.c"
     break;
 
-  case 30: /* statement: CHOLUK ';'  */
-#line 350 "Bison.y"
-                 {
-        (yyval.songka) = -2;
-      }
-#line 1614 "Bison.tab.c"
-    break;
-
-  case 31: /* statement: CHOLUK  */
-#line 353 "Bison.y"
+  case 29: /* statement: CHOLUK  */
+#line 348 "Bison.y"
              {
         (yyval.songka) = -2;
       }
-#line 1622 "Bison.tab.c"
+#line 1600 "Bison.tab.c"
     break;
 
-  case 32: /* BLOCK: BBONDONI statement_list DBONDONI  */
-#line 371 "Bison.y"
+  case 30: /* BLOCK: BBONDONI statement_list DBONDONI  */
+#line 366 "Bison.y"
                                      {
         (yyval.songka) = (yyvsp[-1].songka);
     }
-#line 1630 "Bison.tab.c"
+#line 1608 "Bison.tab.c"
     break;
 
-  case 33: /* statement_list: statement  */
-#line 384 "Bison.y"
+  case 31: /* statement_list: statement  */
+#line 379 "Bison.y"
               {
         (yyval.songka) = (yyvsp[0].songka);
     }
-#line 1638 "Bison.tab.c"
+#line 1616 "Bison.tab.c"
     break;
 
-  case 34: /* statement_list: statement_list statement  */
-#line 387 "Bison.y"
+  case 32: /* statement_list: statement_list statement  */
+#line 382 "Bison.y"
                                {
         (yyval.songka) = (yyvsp[0].songka);
     }
-#line 1646 "Bison.tab.c"
+#line 1624 "Bison.tab.c"
     break;
 
-  case 35: /* array_value_list: %empty  */
-#line 399 "Bison.y"
+  case 33: /* array_value_list: %empty  */
+#line 394 "Bison.y"
        {
         (yyval.array_Data).count = 0;
     }
-#line 1654 "Bison.tab.c"
+#line 1632 "Bison.tab.c"
     break;
 
-  case 36: /* array_value_list: array_values  */
-#line 402 "Bison.y"
+  case 34: /* array_value_list: array_values  */
+#line 397 "Bison.y"
                    {
         (yyval.array_Data) = (yyvsp[0].array_Data);
     }
-#line 1662 "Bison.tab.c"
+#line 1640 "Bison.tab.c"
     break;
 
-  case 37: /* array_values: exp  */
-#line 414 "Bison.y"
+  case 35: /* array_values: exp  */
+#line 409 "Bison.y"
         {
-        (yyval.array_Data).values[0] = (yyvsp[0].songka);
+        (yyval.array_Data).values[0] = (yyvsp[0].songka);   /* exp (10) > $$.values[0] = 10       $$.count = 1 */
         (yyval.array_Data).count = 1;
     }
-#line 1671 "Bison.tab.c"
+#line 1649 "Bison.tab.c"
     break;
 
-  case 38: /* array_values: array_values COMMA exp  */
-#line 418 "Bison.y"
+  case 36: /* array_values: array_values COMMA exp  */
+#line 413 "Bison.y"
                              {
-        (yyval.array_Data) = (yyvsp[-2].array_Data);
-        (yyval.array_Data).values[(yyval.array_Data).count] = (yyvsp[0].songka);
-        (yyval.array_Data).count++;
+        (yyval.array_Data) = (yyvsp[-2].array_Data);                  /* ager array */
+        (yyval.array_Data).values[(yyval.array_Data).count] = (yyvsp[0].songka);   /* notun vaule */
+        (yyval.array_Data).count++;                   /*index er number baray dilam */
     }
-#line 1681 "Bison.tab.c"
+#line 1659 "Bison.tab.c"
     break;
 
-  case 39: /* index_expr: SONGKA  */
-#line 432 "Bison.y"
+  case 37: /* index_expr: SONGKA  */
+#line 427 "Bison.y"
            {
         (yyval.songka) = (int)(yyvsp[0].songka);
     }
-#line 1689 "Bison.tab.c"
+#line 1667 "Bison.tab.c"
     break;
 
-  case 40: /* index_expr: BORNOMALA  */
-#line 435 "Bison.y"
+  case 38: /* index_expr: BORNOMALA  */
+#line 430 "Bison.y"
                 {
         (yyval.songka) = (int)get_Variable_Value((yyvsp[0].bornomala));
     }
-#line 1697 "Bison.tab.c"
+#line 1675 "Bison.tab.c"
     break;
 
-  case 41: /* exp: SONGKA  */
-#line 445 "Bison.y"
+  case 39: /* exp: SONGKA  */
+#line 440 "Bison.y"
              { (yyval.songka) = (yyvsp[0].songka); }
-#line 1703 "Bison.tab.c"
+#line 1681 "Bison.tab.c"
     break;
 
-  case 42: /* exp: BORNOMALA  */
-#line 446 "Bison.y"
+  case 40: /* exp: BORNOMALA  */
+#line 441 "Bison.y"
                 { (yyval.songka) = get_Variable_Value((yyvsp[0].bornomala)); }
-#line 1709 "Bison.tab.c"
+#line 1687 "Bison.tab.c"
     break;
 
-  case 43: /* exp: BORNOMALA BT_BONDONI SONGKA DT_BONDONI  */
-#line 447 "Bison.y"
+  case 41: /* exp: BORNOMALA BT_BONDONI SONGKA DT_BONDONI  */
+#line 442 "Bison.y"
                                              {
         (yyval.songka) = get_Array_Value((yyvsp[-3].bornomala), (int)(yyvsp[-1].songka));
     }
-#line 1717 "Bison.tab.c"
+#line 1695 "Bison.tab.c"
     break;
 
-  case 44: /* exp: BORNOMALA BT_BONDONI index_expr DT_BONDONI  */
-#line 450 "Bison.y"
+  case 42: /* exp: BORNOMALA BT_BONDONI index_expr DT_BONDONI  */
+#line 445 "Bison.y"
                                                  {
         (yyval.songka) = get_Array_Value((yyvsp[-3].bornomala), (yyvsp[-1].songka));
     }
-#line 1725 "Bison.tab.c"
+#line 1703 "Bison.tab.c"
     break;
 
-  case 45: /* exp: exp JUG exp  */
-#line 453 "Bison.y"
+  case 43: /* exp: exp JUG exp  */
+#line 448 "Bison.y"
                   { (yyval.songka) = (yyvsp[-2].songka) + (yyvsp[0].songka); }
-#line 1731 "Bison.tab.c"
+#line 1709 "Bison.tab.c"
     break;
 
-  case 46: /* exp: exp BIYUG exp  */
-#line 454 "Bison.y"
+  case 44: /* exp: exp BIYUG exp  */
+#line 449 "Bison.y"
                     { (yyval.songka) = (yyvsp[-2].songka) - (yyvsp[0].songka); }
-#line 1737 "Bison.tab.c"
+#line 1715 "Bison.tab.c"
     break;
 
-  case 47: /* exp: exp GUN exp  */
-#line 455 "Bison.y"
+  case 45: /* exp: exp GUN exp  */
+#line 450 "Bison.y"
                   { (yyval.songka) = (yyvsp[-2].songka) * (yyvsp[0].songka); }
-#line 1743 "Bison.tab.c"
+#line 1721 "Bison.tab.c"
     break;
 
-  case 48: /* exp: exp VAG exp  */
-#line 456 "Bison.y"
+  case 46: /* exp: exp VAG exp  */
+#line 451 "Bison.y"
                   { 
         if ((yyvsp[0].songka) == 0) {
-            printf("শূন্য দিয়ে ভাগ করা যায় না!\n");
+            printf("sunno dea vag kora jay na .infinity hoye hay \n");
             (yyval.songka) = 0;
         } else {
             (yyval.songka) = (yyvsp[-2].songka) / (yyvsp[0].songka); 
         }
     }
-#line 1756 "Bison.tab.c"
+#line 1734 "Bison.tab.c"
     break;
 
-  case 49: /* exp: BBONDONI exp DBONDONI  */
-#line 464 "Bison.y"
+  case 47: /* exp: BBONDONI exp DBONDONI  */
+#line 459 "Bison.y"
                             { (yyval.songka) = (yyvsp[-1].songka); }
-#line 1762 "Bison.tab.c"
+#line 1740 "Bison.tab.c"
     break;
 
-  case 50: /* exp: BORGO BBONDONI exp COMMA exp DBONDONI  */
-#line 470 "Bison.y"
+  case 48: /* exp: BORGO BBONDONI exp COMMA exp DBONDONI  */
+#line 465 "Bison.y"
                                             {
         double base = (yyvsp[-3].songka);
         double exponent = (yyvsp[-1].songka);
         double result = pow_function(base, exponent);
-        printf("পাওয়ার: %.4lf ^ %.4lf = %.4lf\n", base, exponent, result);
+        printf("Power : %.4lf ^ %.4lf = %.4lf\n", base, exponent, result);
         (yyval.songka) = result;
     }
-#line 1774 "Bison.tab.c"
+#line 1752 "Bison.tab.c"
     break;
 
-  case 51: /* exp: BORGOMUL BBONDONI exp DBONDONI  */
-#line 477 "Bison.y"
+  case 49: /* exp: BORGOMUL BBONDONI exp DBONDONI  */
+#line 472 "Bison.y"
                                     {
         double value = (yyvsp[-1].songka);
         if (value < 0) {
-            printf("ত্রুটি: ঋণাত্মক সংখ্যার বর্গমূল নেওয়া যায় না!\n");
+            printf("negative value er borgomul hoy na.Imaginary number hoye jay\n");
             (yyval.songka) = 0;
         } else {
             double result = sqrt_function(value);
-            printf("বর্গমূল: √%.4lf = %.4lf\n", value, result);
+            printf("Borgomul : √%.4lf = %.4lf\n", value, result);
             (yyval.songka) = result;
         }
     }
-#line 1790 "Bison.tab.c"
+#line 1768 "Bison.tab.c"
     break;
 
-  case 52: /* condition: exp SOMAN exp  */
-#line 495 "Bison.y"
+  case 50: /* condition: exp SOMAN exp  */
+#line 487 "Bison.y"
                     { (yyval.songka) = ((yyvsp[-2].songka) == (yyvsp[0].songka)); }
-#line 1796 "Bison.tab.c"
+#line 1774 "Bison.tab.c"
     break;
 
-  case 53: /* condition: exp OSOMAN exp  */
-#line 496 "Bison.y"
+  case 51: /* condition: exp OSOMAN exp  */
+#line 488 "Bison.y"
                      { (yyval.songka) = ((yyvsp[-2].songka) != (yyvsp[0].songka)); }
-#line 1802 "Bison.tab.c"
+#line 1780 "Bison.tab.c"
     break;
 
-  case 54: /* condition: exp CHOTO exp  */
-#line 497 "Bison.y"
+  case 52: /* condition: exp CHOTO exp  */
+#line 489 "Bison.y"
                     { (yyval.songka) = ((yyvsp[-2].songka) < (yyvsp[0].songka)); }
-#line 1808 "Bison.tab.c"
+#line 1786 "Bison.tab.c"
     break;
 
-  case 55: /* condition: exp BORO exp  */
-#line 498 "Bison.y"
+  case 53: /* condition: exp BORO exp  */
+#line 490 "Bison.y"
                    { (yyval.songka) = ((yyvsp[-2].songka) > (yyvsp[0].songka)); }
-#line 1814 "Bison.tab.c"
+#line 1792 "Bison.tab.c"
     break;
 
-  case 56: /* condition: exp CHOTO_SOMAN exp  */
-#line 499 "Bison.y"
+  case 54: /* condition: exp CHOTO_SOMAN exp  */
+#line 491 "Bison.y"
                           { (yyval.songka) = ((yyvsp[-2].songka) <= (yyvsp[0].songka)); }
-#line 1820 "Bison.tab.c"
+#line 1798 "Bison.tab.c"
     break;
 
-  case 57: /* condition: exp BORO_SOMAN exp  */
-#line 500 "Bison.y"
+  case 55: /* condition: exp BORO_SOMAN exp  */
+#line 492 "Bison.y"
                          { (yyval.songka) = ((yyvsp[-2].songka) >= (yyvsp[0].songka)); }
-#line 1826 "Bison.tab.c"
+#line 1804 "Bison.tab.c"
     break;
 
-  case 58: /* condition: condition ABONG condition  */
-#line 501 "Bison.y"
+  case 56: /* condition: condition ABONG condition  */
+#line 493 "Bison.y"
                                 { (yyval.songka) = ((yyvsp[-2].songka) && (yyvsp[0].songka)); }
-#line 1832 "Bison.tab.c"
+#line 1810 "Bison.tab.c"
     break;
 
-  case 59: /* condition: condition BA condition  */
-#line 502 "Bison.y"
+  case 57: /* condition: condition BA condition  */
+#line 494 "Bison.y"
                              { (yyval.songka) = ((yyvsp[-2].songka) || (yyvsp[0].songka)); }
-#line 1838 "Bison.tab.c"
+#line 1816 "Bison.tab.c"
     break;
 
-  case 60: /* condition: NA condition  */
-#line 503 "Bison.y"
+  case 58: /* condition: NA condition  */
+#line 495 "Bison.y"
                    { (yyval.songka) = (!(yyvsp[0].songka)); }
-#line 1844 "Bison.tab.c"
+#line 1822 "Bison.tab.c"
     break;
 
-  case 61: /* condition: BBONDONI condition DBONDONI  */
-#line 504 "Bison.y"
+  case 59: /* condition: BBONDONI condition DBONDONI  */
+#line 496 "Bison.y"
                                   { (yyval.songka) = (yyvsp[-1].songka); }
-#line 1850 "Bison.tab.c"
+#line 1828 "Bison.tab.c"
     break;
 
 
-#line 1854 "Bison.tab.c"
+#line 1832 "Bison.tab.c"
 
       default: break;
     }
@@ -2043,29 +2021,36 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 507 "Bison.y"
-
-
-
-
-
-
-
+#line 499 "Bison.y"
 
 
 
 
 int main()
 {
-    yyin = fopen("Input.txt", "r");
+    printf("\n");
+    printf("====================================================================\n");
+    printf("                  COMPILER DESIGN LAB PROJECT                 \n");
+    printf("=====================================================================\n");
+    printf("   Developed by: Students of Daffodil International University (DIU)  \n");
+    printf("   Department: Computer Science & Engineering                          \n");
+    printf("=======================================================================\n\n");
+
+    yyin = fopen("Input.txt", "r");                                        /* file open kore ar read korbe tai r */
     if (!yyin) {
-        printf("ফাইল খোলা যায়নি!\n");
+        printf("====================================================\n");
+        printf("File open hoche na .file name and type check koro.\n");
+        printf("====================================================\n");
+  
         return 1;
     }
     
-    printf("========== প্রোগ্রাম শুরু ==========\n");
+
     yyparse();
-    printf("========== প্রোগ্রাম শেষ ==========\n");
+    
+    printf("\n====================================================\n");
+    printf("        COMPILATION COMPLETED SUCCESSFULLY         \n");
+    printf("====================================================\n");
     
     fclose(yyin);
     return 0;
@@ -2073,7 +2058,7 @@ int main()
 
 int yyerror(const char *s)
 {
-    printf("ভুল হয়েছে : %s\n", s);
+    printf("Bhul hoyeche : %s\n", s);
     return 0;
 }
 
@@ -2088,16 +2073,16 @@ int yyerror(const char *s)
 
 double get_Variable_Value(char *name) {
     for (int i = 0; i < var_Count; i++) {
-        if (strcmp(vars[i].variable_Name, name) == 0) {
+        if (strcmp(vars[i].variable_Name, name) == 0) { /*strcmp() == 0 use kora hoiche karon C tha strcmp() function a string 2 ta ek hole 0 return . akhane 0 mane false na*/
             if (vars[i].is_Assigned) {
                 return vars[i].variable_Value;
             } else {
-                printf("ভেরিয়েবল '%s' এর মান নির্ধারণ করা হয়নি।\n", name);
+                printf("Variable '%s' er man nirdharan kora hoy nai\n", name);
                 return 0;
             }
         }
     }
-    printf("ভেরিয়েবল '%s' পাওয়া যায়নি।\n", name);
+    printf("Variable '%s' pawa jay nai\n", name);
     return 0;
 }
 
@@ -2134,44 +2119,62 @@ void set_Variable_Value(char *name, double value) {
 
 
 
-
-
-
-
-
-
-
-
-
-
 int get_Array_Index(char *name) {
     for (int i = 0; i < array_Count; i++) {
         if (strcmp(arrays[i].array_Name, name) == 0) {
             return i;
         }
     }
-    return -1;
+    return -1;     /*array na pawa gale -1 return kore */
 }
 
 
 
+/* get_Array_Value(name, index) er flow tha dekhai dichi kivabe kaj kore function gula 
 
+A[1]
+        |
+get_Array_Index("A")
+        |
+FOUND array
+        |
+index check
+        |
+return arrays[idx].array_Values[1]
+        |
+OUTPUT value
+
+*/
 
 double get_Array_Value(char *name, int index) {
     int arr_idx = get_Array_Index(name);
     if (arr_idx == -1) {
-        printf("'%s' পাওয়া যায়নি।\n", name);
+        printf("'%s' value pawa jay nai\n", name);
         return 0;
     }
     if (index < 0 || index >= arrays[arr_idx].size) {
-        printf("ইনডেক্স %d সীমানার বাইরে। '%s' এর সাইজ %d\n", index, name, arrays[arr_idx].size);
+        printf("index %d range er bahire '%s' er size%d\n", index, name, arrays[arr_idx].size);
         return 0;
     }
     return arrays[arr_idx].array_Values[index];
 }
 
 
+/* set_Array_Value(name, index, value)
 
+A[1] = 50
+        |
+get_Array_Index("A")
+        |
+FOUND array index
+        |
+index check (valid?)
+        |
+arrays[idx].array_Values[1] = 50
+        |
+DONE
+
+*/
 
 
 
@@ -2179,11 +2182,11 @@ double get_Array_Value(char *name, int index) {
 void set_Array_Value(char *name, int index, double value) {
     int arr_idx = get_Array_Index(name);
     if (arr_idx == -1) {
-        printf("'%s' আগে তৈরি করতে হবে!\n", name);
+        printf("'%s' age toiri korthe hobe \n", name);
         return;
     }
     if (index < 0 || index >= arrays[arr_idx].size) {
-        printf("ইনডেক্স %d সীমানার বাইরে। '%s' এর সাইজ %d\n", index, name, arrays[arr_idx].size);
+        printf("index %d range er bahire '%s' er size%d\n", index, name, arrays[arr_idx].size);
         return;
     }
     arrays[arr_idx].array_Values[index] = value;
@@ -2191,6 +2194,24 @@ void set_Array_Value(char *name, int index, double value) {
 
 
 
+/* initialize_Array_With_Values(name, values, size)
+
+input: A = [10, 20, 30]
+        |
+get_Array_Index("A")
+        |
+NOT FOUND (-1)
+        |
+new array create
+        |
+name store = "A"
+size store = 3
+values copy = [10,20,30]
+array_Count++
+        |
+PRINT: A 
+
+*/
 
 void initialize_Array_With_Values(char *name, double *values, int size) {
     int arr_idx = get_Array_Index(name);
@@ -2210,7 +2231,7 @@ void initialize_Array_With_Values(char *name, double *values, int size) {
         }
         array_Count++;
     }
-    printf("'%s' তৈরি করা হয়েছে (সাইজ: %d)\n", name, size);
+    printf("'%s' Toiri kora holo (size : %d)\n", name, size);
     printf("%s = [", name);
     for (int i = 0; i < size; i++) {
         printf("%.0lf", arrays[arr_idx].array_Values[i]);
@@ -2233,12 +2254,27 @@ void initialize_Array_With_Values(char *name, double *values, int size) {
 
 
 
+/* 
+Amra bouble sort use korchi
 
+sort_Array(name, order)
+
+input: A = [30, 10, 20]
+        |
+get_Array_Index("A")
+        |
+FOUND array index
+        |
+sort the array based on order (1 for ascending, 0 for descending)
+        |
+PRINT: A
+
+*/
 
 void sort_Array(char *name, int order) {
     int arr_idx = get_Array_Index(name);
     if (arr_idx == -1) {
-        printf("'%s' পাওয়া যায়নি।\n", name);
+        printf("'%s' Pawa jay nai \n", name);
         return;
     }
     
@@ -2261,11 +2297,11 @@ void sort_Array(char *name, int order) {
         }
     }
     
-    printf("'%s' সাজানো হয়েছে ", name);
+    printf("'%s' Sajanu hoyeche  ", name);
     if (order == 1) {
-        printf("(আরোহী ক্রমে):\n");
+        printf("(Choto thake boro ):\n");
     } else {
-        printf("(অবরোহী ক্রমে):\n");
+        printf("(Boro thake choto):\n");
     }
     printf("%s = [", name);
     for (int i = 0; i < size; i++) {
@@ -2278,7 +2314,7 @@ void sort_Array(char *name, int order) {
 
 
 
-
+/*palindrome a amra protom thake charecter ar last thake carecter compare korchi */
 
 int is_palindrome_string(char *str) {
     int len = strlen(str);
@@ -2291,6 +2327,8 @@ int is_palindrome_string(char *str) {
     }
     return 1;  
 }
+
+/*songkha palindrome er somoy amra reverce kore match korchi 2 ta same naki */
 
 int is_palindrome_number(int num) {
     int original = num;
@@ -2315,28 +2353,17 @@ int is_palindrome_number(int num) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+/*protom ta max dhore bakigular sathe compare korchi jodi boro hoy tokon max update korchi*/
 
 double get_largest_from_array(char *array_name) {
     int arr_idx = get_Array_Index(array_name);
     if (arr_idx == -1) {
-        printf("'%s' অ্যারে পাওয়া যায়নি!\n", array_name);
+        printf("'%s' array pawa jay nai \n", array_name);
         return 0;
     }
     
     if (arrays[arr_idx].size == 0) {
-        printf("'%s' অ্যারেটি খালি!\n", array_name);
+        printf("'%s' array Khali!\n", array_name);
         return 0;
     }
     
@@ -2350,16 +2377,16 @@ double get_largest_from_array(char *array_name) {
 }
 
 
-
+/*max er mothoi sudhu aibar minimum naki saita dekchi */
 double get_smallest_from_array(char *array_name) {
     int arr_idx = get_Array_Index(array_name);
     if (arr_idx == -1) {
-        printf("'%s' অ্যারে পাওয়া যায়নি!\n", array_name);
+        printf("'%s' array pawa jay nai \n", array_name);
         return 0;
     }
     
     if (arrays[arr_idx].size == 0) {
-        printf("'%s' অ্যারেটি খালি!\n", array_name);
+        printf("'%s' array Khali!\n", array_name);
         return 0;
     }
     
@@ -2383,23 +2410,48 @@ double get_smallest_from_array(char *array_name) {
 
 
 
+/* ager max ta temporary variable rakhe dichi pore oita output dea dichi */
 
+/* 2nd max er mothoi ai bar sunu condition minimum er jonno  */
 
+/*input array name
+        |
+find array index
+        |
+not found? → return -1
+        |
+size < 2? → return -1
+        |
+init:
+   first_max = -1e9             -1e9 aita mane akhono kicu pai nai er poriborthe -INFINITY use korthe partam.
+   second_max = -1e9
+        |
+loop array:
+   update first_max
+   update second_max
+        |
+second_max still -1e9?
+        |
+no second max → error
+        |
+else return second_max
+*/
 
 
 double get_second_largest_from_array(char *array_name) {
     int arr_idx = get_Array_Index(array_name);
     if (arr_idx == -1) {
-        printf("'%s' অ্যারে পাওয়া যায়নি!\n", array_name);
+        printf("'%s' array pawa jay nai \n", array_name);
         return -1;
     }
     
     if (arrays[arr_idx].size < 2) {
-        printf("'%s' অ্যারেতে কমপক্ষে ২টি উপাদান প্রয়োজন!\n", array_name);
+        printf("'%s' array te kompokshe 2ti upadan pryojon!\n", array_name);
         return -1;
     }
     
-    double first_max = -1e9, second_max = -1e9;
+    double first_max = -1e9, second_max = -1e9;  /*-1e9 aita mane akhono kicu pai nai er poriborthe -INFINITY use korthe partam.*/
+                                                 /* -1e9 er mane -1 × 10^9 othoba -1000000000*/
     
     for (int i = 0; i < arrays[arr_idx].size; i++) {
         if (arrays[arr_idx].array_Values[i] > first_max) {
@@ -2413,7 +2465,7 @@ double get_second_largest_from_array(char *array_name) {
     }
     
     if (second_max == -1e9) {
-        printf("'%s' অ্যারেতে দ্বিতীয় বৃহত্তম সংখ্যা নেই!\n", array_name);
+        printf("'%s' array the 2nd sorbucho songkha nai \n", array_name);
         return -1;
     }
     
@@ -2429,17 +2481,22 @@ double get_second_largest_from_array(char *array_name) {
 
 
 
+/* ager tar mothoi sudhu condition minimum er jonno  */
+
+/*ar sudhu -1e9 er poriborthe +1e9 and +INFINITY use korchi */
+/* 1e9 er mane 1 × 10^9 othoba 1000000000*/
+
 
 
 double get_second_smallest_from_array(char *array_name) {
     int arr_idx = get_Array_Index(array_name);
     if (arr_idx == -1) {
-        printf("'%s' অ্যারে পাওয়া যায়নি!\n", array_name);
+        printf("'%s' array pawa jay nai \n", array_name);
         return -1;
     }
     
     if (arrays[arr_idx].size < 2) {
-        printf("'%s' অ্যারেতে কমপক্ষে ২টি উপাদান প্রয়োজন!\n", array_name);
+        printf("'%s' array te kompokshe 2ti upadan pryojon!\n", array_name);
         return -1;
     }
     
@@ -2457,7 +2514,7 @@ double get_second_smallest_from_array(char *array_name) {
     }
     
     if (second_min == 1e9) {
-        printf("'%s' অ্যারেতে দ্বিতীয় ক্ষুদ্রতম সংখ্যা নেই!\n", array_name);
+        printf("'%s' array te 2nd sorbonimno songkha nai \n", array_name);
         return -1;
     }
     
@@ -2476,7 +2533,45 @@ double get_second_smallest_from_array(char *array_name) {
 
 
 
-
+/*
+value = 6
+ |
+6 < 0 ? → NO
+ |
+guess = value / 2 = 6 / 2 = 3
+epsilon = 0.000001
+ |
+---------------- ITERATION 1 ----------------
+guess = 3
+guess² = 9
+error = |9 - 6| = 3  > epsilon → loop continues
+ |
+guess = (3 + 6/3) / 2
+      = (3 + 2) / 2
+      = 2.5
+ |
+---------------- ITERATION 2 ----------------
+guess = 2.5
+guess² = 6.25
+error = |6.25 - 6| = 0.25 > epsilon → continue
+ |
+guess = (2.5 + 6/2.5) / 2
+      = (2.5 + 2.4) / 2
+      = 2.45
+ |
+---------------- ITERATION 3 ----------------
+guess = 2.45
+guess² ≈ 6.0025
+error ≈ 0.0025 > epsilon → continue
+ |
+guess ≈ 2.449
+ |
+---------------- FINAL ITERATION ----------------
+guess² ≈ 6.0000
+error ≤ epsilon → STOP
+ |
+RETURN ≈ 2.449
+*/
 
 
 double sqrt_function(double value) {
@@ -2494,6 +2589,31 @@ double sqrt_function(double value) {
     return guess;
 }
 
+
+
+
+
+/*2^2.5
+ |
+check integer? → NO
+ |
+split:
+ int_part = 2
+ frac_part = 0.5
+ |
+step 1: integer power
+ result = 2 × 2 = 4
+ |
+step 2: fractional approx
+ 1 + 0.5*(2-1)
+ = 1.5
+ |
+step 3: combine
+ result = 4 × 1.5
+       = 6
+ |
+return ≈ 6
+*/
 
 double pow_function(double base, double exponent) {
     double result = 1.0;
@@ -2568,11 +2688,6 @@ double reverse_number(int num) {
 char* reverse_string(char *str) {
     int len = strlen(str);
     char *reversed = (char*)malloc(len + 1);
-    
-    if (reversed == NULL) {
-        printf("মেমোরি বরাদ্দ করা যায়নি!\n");
-        return "";
-    }
     
     for (int i = 0; i < len; i++) {
         reversed[i] = str[len - 1 - i];
