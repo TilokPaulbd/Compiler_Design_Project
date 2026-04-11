@@ -2030,7 +2030,7 @@ int main()
 {
     printf("\n");
     printf("====================================================================\n");
-    printf("                  COMPILER DESIGN LAB PROJECT                 \n");
+    printf("       COMPILER DESIGN LAB PROJECT                                    \n");
     printf("=====================================================================\n");
     printf("   Developed by: Students of Daffodil International University (DIU)  \n");
     printf("   Department: Computer Science & Engineering                          \n");
